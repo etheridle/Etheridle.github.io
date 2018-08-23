@@ -21,17 +21,17 @@
 	<meta property="og:iamge:height" content="400">
 
 	<!-- icons -->
-	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-114.png.html">
-	<link rel="apple-touch-icon" sized="72x72" href="img/apple-72.png.html">
-	<link rel="apple-touch-icon" href="img/apple.png.html">
-	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+	<link rel="apple-touch-icon" sizes="114x114" href="../img/apple-114.png">
+	<link rel="apple-touch-icon" sized="72x72" href="../img/apple-72.png">
+	<link rel="apple-touch-icon" href="../img/apple.png">
+	<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
 
 	<!-- css -->
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/custom.css">
-	<link rel="stylesheet" href="css/alertify.css">
-	<link rel="stylesheet" href="css/base.css">
-	<link rel="stylesheet" href="css/ghostframe.css">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/custom.css">
+	<link rel="stylesheet" href="/css/alertify.css">
+	<link rel="stylesheet" href="/css/base.css">
+	<link rel="stylesheet" href="/css/ghostframe.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200,400" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
 
@@ -206,7 +206,7 @@
 					<p class="glow">蛇队进入奖池的比例最低，仅10%，其余全部分红！</p>
 					<p><a href="https://hackmd.io/s/ryFTfx-Em#">官方中文简易指南 https://hackmd.io/s/ryFTfx-Em</a> (Author: maojk#6803)</p>
 					<hr>
-					<p><a href="https://etherscan.io/address/0x76ac336Ba076308b768128278FF4902359E69713">Contract Code</a></p>
+					<p><a href="https://etherscan.io/address/0x0b5dA756938E334c97Ce20715e32a4a8FEa12ba9#code">Contract Code</a></p>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-block btn-lg btn-secondary btn-purp" data-dismiss="modal">Got it!</button>

@@ -1,7 +1,7 @@
 /* general declarations, unsorted */
 body {
 	font-family: Poppins;
-  background-color: #302100;
+  background-color: #302430;
 }
 .brand-logo {
 	height: 3rem;
@@ -74,7 +74,7 @@ body {
 	top:-0.5%;
 	width: 102%;
 	height: 102%;
-	/*background-image: url('../img/purple_bg_dark.jpg.html');*/
+	background-image: url('../img/purple_bg_dark.jpg.html');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -117,34 +117,24 @@ body {
   background-color: rgba(52, 58, 64, 0.8);
 }
 .btn-purp {
-  /* hw
-  color:white;
-  background-color: #f000f0;
-  */
-  color:white;
-  background-color: #4cb0e2;
+	color:white;
+	background-color: #f000f0;
 }
 .btn-blu {
 	color:white;
 	background-color: #0055f0;
 }
 .btn-blu:hover, .btn-blu.active{
-	background-color: #4cb0e2;
+	background-color: #5491ff;
 	box-shadow: 0 0 2px #2472ff, 0 0 25px #3e82ff, 0 0 5px #5491ff;
 	text-shadow: 0 0 2px #2472ff;
 	color:white;
 }
 .btn-purp:hover, .btn-purp.active{
-  /* hw
 	background-color: #ff4fff;
 	box-shadow: 0 0 2px #2b002b, 0 0 25px #c0c, 0 0 5px #f0f;
 	text-shadow: 0 0 2px #2b002b;
-  color:white;
-  */
-  background-color: #1f3754;
-	box-shadow: 0 0 2px #1f3754, 0 0 25px #4cb0e2, 0 0 5px #58c3f8;
-	text-shadow: 0 0 2px #1f3754;
-  color:white;
+	color:white;
 }
 .btn-gren {
 	color:white;
@@ -157,21 +147,13 @@ body {
 	color:white;
 }
 .btn-outline-purp {
-  /* hw
   color:white;
   background-color: transparent;
   border: 1px solid #702571;
-  */
-  color:white;
-  background-color: #4cb0e2;
 }
 .btn-outline-purp:hover, .btn-outline-purp.active {
-  /* hw
   color:white;
   background-color: #702571;
-  */
-  color:white;
-  background-color: #1f3754;
 }
 .btn-outline-blu {
   color:white;
@@ -244,10 +226,7 @@ a:hover{
 	height:5px;
 }
 .progress-bar {
-  /* hw
-  background-color: #f000f0;
-  */
-  background-color: #ffd000;
+	background-color: #f000f0;
 }
 .progress-bar-glow {
 	content: url('../img/progress_after.png.html');
@@ -322,73 +301,38 @@ tr:hover {
 	  border: 1px solid transparent;
 }
 .nav-link:hover {
-  /* hw
 	text-shadow: 0 0 2px #2b002b, 0 0 25px #c0c, 0 0 5px #f0f;
-  color:white;
-  */
-  text-shadow: 0 0 2px #715e0a, 0 0 25px #d6b10e, 0 0 5px #ffd000;
-  color:#1f3754;
+	color:white;
 }
 .nav-link-gren-on{
 	text-shadow: 0 0 2px #002b00, 0 0 25px #0c0, 0 0 5px #0f0;
 	background-color: transparent;
 }
 .nav-link-purp-on{
-  /* hw
 	text-shadow: 0 0 2px #2b002b, 0 0 25px #c0c, 0 0 5px #f0f;
-  background-color: transparent;
-  */
-  text-shadow: 0 0 2px #715e0a, 0 0 25px #d6b10e, 0 0 5px #ffd000;
-  background-color: transparent;
+	background-color: transparent;
 }
-.nav-link-blu-on{
-  text-shadow: 0 0 2px #001f58, 0 0 25px #0055f1, 0 0 5px #003aa4;
-  background-color: transparent;
-}
-.nav-link-blu-on:hover {
-  text-shadow: 0 0 2px #001f58, 0 0 25px #0055f1, 0 0 5px #003aa4;
-  background-color: transparent;
-  border: 1px solid #0055f1;
-}
+
 .nav-link-gren:hover {
 	text-shadow: 0 0 2px #002b00, 0 0 25px #0c0, 0 0 5px #0f0;
 	background-color: transparent;
 	border: 1px solid #0c0;
 }
 .nav-link-purp:hover {
-  /* hw
 	text-shadow: 0 0 2px #2b002b, 0 0 25px #c0c, 0 0 5px #f0f;
 	background-color: transparent;
-  border: 1px solid #c0c;
-  */
-  text-shadow: 0 0 2px #715e0a, 0 0 25px #d6b10e, 0 0 5px #ffd000;
-	background-color: transparent;
-  border: 1px solid #d6b10e;
+	border: 1px solid #c0c;
 }
 .nav-link-gren-shadow:hover {
 	text-shadow: 0 0 2px #002b00, 0 0 25px #0c0, 0 0 5px #0f0 !important;
 	background-color: transparent;
 }
 .nav-item a {
-  /* hw
-  color: white!important;
-  */
-  color: #1f3754!important;
-}
-
-.nav-item-top a {
-  /* hw
-  color: white!important;
-  */
-  color: white!important;
+	color: white!important;
 }
 .nav-item > .active {
-  /* hw
 	background-color: #ff4fff!important;
-  box-shadow: 0 0 2px #2b002b, 0 0 25px #c0c, 0 0 5px #f0f;
-  */
-  background-color: #58c3f8!important;
-  box-shadow: 0 0 2px #1f3754, 0 0 25px #4cb0e2, 0 0 5px #58c3f8;
+	box-shadow: 0 0 2px #2b002b, 0 0 25px #c0c, 0 0 5px #f0f;
 }
 .teaser-cover {
 	background-color: transparent;
@@ -465,20 +409,12 @@ tr:hover {
 	background-repeat: no-repeat;
 }
 .teamscore {
-  /*
 	background-color: #2d3238;
 	border-top:1px solid #1d2024;
-  border-bottom:1px solid #676b70;
-  */
-  background-color: #f8f9fa;
-	border-top:1px solid #1d2024;
-  border-bottom:1px solid #676b70;
+	border-bottom:1px solid #676b70;
 }
 .glow {
-  /* hw
-  text-shadow: 0 0 2px #2b002b, 0 0 10px #c0c, 0 0 5px #f0f;
-  */
-  text-shadow: 0 0 2px #715e0a, 0 0 10px #d6b10e, 0 0 5px #ffd000;
+	text-shadow: 0 0 2px #2b002b, 0 0 10px #c0c, 0 0 5px #f0f;
 }
 .glow-gren {
 	text-shadow: 0 0 2px #0b2b00, 0 0 10px #00cc00, 0 0 5px #0f0;
@@ -487,12 +423,8 @@ tr:hover {
 	text-shadow: 0 0 2px #0b002b, 0 0 10px #2ee1ef, 0 0 5px #008aff;
 }
 .titleglow {
-  /* hw
   text-shadow: 0 0 5px #2b002b, 0 0 20px #c0c, 0 0 10px #f0f;
   color:white;
-  */
-  text-shadow: 0 0 5px #715e0a, 0 0 20px #d6b10e, 0 0 10px #ffd000;
-  color:#F22105;
 }
 .titleglow-green{
 	text-shadow: 0 0 5px #2b002b, 0 0 20px #0c0, 0 0 10px #0f0;
@@ -503,10 +435,7 @@ tr:hover {
   color:white;
 }
 .boxglow {
-  /* hw
-  box-shadow: 0 0 2px #2b002b, 0 0 10px #c0c, 0 0 5px #f0f;
-  */
-  box-shadow: 0 0 2px #715e0a, 0 0 10px #d6b10e, 0 0 5px #ffd000;
+	box-shadow: 0 0 2px #2b002b, 0 0 10px #c0c, 0 0 5px #f0f;
 }
 
 .dropglow-yel {
@@ -541,22 +470,13 @@ tr:hover {
   border: none!important;
 }
 .tab-link.active{
-  /* hw
   box-shadow: none;
   background-color: #343a40!important; 
   border: none;
-  */
-  box-shadow: none;
-  background-color: #f8f9fa!important; 
-  border: none;
 }
 .tab-link:hover{
-  /*
   border:none;
   background-color:#2d3238;
-  */
-  border:none;
-  background-color:#f8f9fa;
 }
 .absolute-overlay {
 	margin-top:-4rem;
@@ -576,12 +496,8 @@ tr:hover {
   z-index:-1;
 }
 .alert-purp{
-  /* hw
   background-color: #ff32ff;
   border-color: #f0f;
-  */
-  background-color: #58c3f8;
-  border-color: #4cb0e2;
 }
 .cta-ticket{
   display:none;
@@ -647,20 +563,12 @@ label > img{
   content:url('../img/sneks.png.html');
 }*/
 .team input:checked ~ img {
-  /*
   filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 15px #c0c) drop-shadow(0 0 5px #f0f);
   -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 15px #c0c) drop-shadow(0 0 5px #f0f);
-  */
-  filter: drop-shadow(0 0 2px #715e0a) drop-shadow(0 0 15px #d6b10e) drop-shadow(0 0 5px #ffd000);
-  -webkit-filter: drop-shadow(0 0 2px #715e0a) drop-shadow(0 0 15px #d6b10e) drop-shadow(0 0 5px #ffd000);
 }
 .team img:hover {
-  /* hw
   animation:slowpulse 1s infinite;
   filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #c0c) drop-shadow(0 0 5px #f0f);
-  */
-  animation:slowpulse 1s infinite;
-  filter: drop-shadow(0 0 2px #715e0a) drop-shadow(0 0 25px #d6b10e) drop-shadow(0 0 5px #ffd000);
 }
 .checkmark:after{
   content: "";
@@ -668,12 +576,8 @@ label > img{
   display: none;
 }
 .ethglow{
-  /* hw
   filter: drop-shadow(0 0 2px #0b002b) drop-shadow(0 0 25px #c0c) drop-shadow(0 0 5px #f0f);
   -webkit-filter: drop-shadow(0 0 2px #0b002b) drop-shadow(0 0 25px #c0c) drop-shadow(0 0 5px #f0f);
-  */
-  filter: drop-shadow(0 0 2px #0b002b) drop-shadow(0 0 25px #d6b10e) drop-shadow(0 0 5px #ffd000);
-  -webkit-filter: drop-shadow(0 0 2px #0b002b) drop-shadow(0 0 25px #d6b10e) drop-shadow(0 0 5px #ffd000);
 }
 .ethglow-slow{
   filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #2ee1ef) drop-shadow(0 0 5px #008aff);
@@ -684,12 +588,8 @@ label > img{
   -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 25px #0c0) drop-shadow(0 0 5px #0f0);
 }
 .ethglow-calm-down-sumpunk{
-  /* hw
   filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 1px #c0c) drop-shadow(0 0 2px #f0f);
   -webkit-filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 1px #c0c) drop-shadow(0 0 2px #f0f);
-  */
-  filter: drop-shadow(0 0 2px #715e0a) drop-shadow(0 0 1px #d6b10e) drop-shadow(0 0 2px #ffd000);
-  -webkit-filter: drop-shadow(0 0 2px #715e0a) drop-shadow(0 0 1px #d6b10e) drop-shadow(0 0 2px #ffd000);
 }
 .ethglow-its-okay-justo{
   filter: drop-shadow(0 0 2px #2b002b) drop-shadow(0 0 10px #c0c) drop-shadow(0 0 2px #f0f);
@@ -1143,7 +1043,6 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
 }
 /* pulse effect */
 @keyframes pulse {
-  /* hw
   0% {
     -moz-box-shadow: 0 0 0 0 rgba(204,0,204, 0.8);
     box-shadow: 0 0 0 0 rgba(204,0,204, 0.8);
@@ -1155,19 +1054,6 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
   100% {
       -moz-box-shadow: 0 0 0 10px rgba(204,0,204, 0);
       box-shadow: 0 0 0 10px rgba(204,0,204, 0);
-  }
-  */
-  0% {
-    -moz-box-shadow: 0 0 0 0 rgba(214,177,14, 0.8);
-    box-shadow: 0 0 0 0 rgba(214,177,14, 0.8);
-  }
-  70% {
-      -moz-box-shadow: 0 0 0 5px rgba(214,177,14, 0.3);
-      box-shadow: 0 0 0 5px rgba(214,177,14, 0.3);
-  }
-  100% {
-      -moz-box-shadow: 0 0 0 10px rgba(214,177,14, 0);
-      box-shadow: 0 0 0 10px rgba(214,177,14, 0);
   }
 }
 /* blue pulse for fomo3d slow mode */
@@ -1202,7 +1088,6 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
 }
 /* pulse effect for tutorialarrows */
 @keyframes pulsedrop {
-  /* hw
   0% {
     filter: drop-shadow(0 0 0 rgba(204,0,204, 0.8));
     -webkit-filter: drop-shadow(0 0 0 rgba(204,0,204, 0.8));
@@ -1220,29 +1105,10 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
       filter: drop-shadow(0 0 40px rgba(204,0,204, 0));
       -webkit-filter: drop-shadow(0 0 40px rgba(204,0,204, 0));
       left:-0.1rem;
-  }*/
-  0% {
-    filter: drop-shadow(0 0 0 rgba(214,177,14, 0.8));
-    -webkit-filter: drop-shadow(0 0 0 rgba(214,177,14, 0.8));
-    left:-0.1rem;
-    color: #d6b10e;
-  }
-  50% {
-    left:-0.5rem;
-  }
-  70% {
-      filter: drop-shadow(0 0 25px rgba(214,177,14, 0.6));
-      -webkit-filter: drop-shadow(0 0 25px rgba(214,177,14, 0.6));
-  }
-  100% {
-      filter: drop-shadow(0 0 40px rgba(214,177,14, 0));
-      -webkit-filter: drop-shadow(0 0 40px rgba(214,177,14, 0));
-      left:-0.1rem;
   }
 }
 /* team select */
 @keyframes slowpulse {
-  /* hw
   0% {
     filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(204,0,204, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
     -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(204,0,204, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
@@ -1254,18 +1120,6 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
   100% {
     filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(204,0,204, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
     -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(204,0,204, 0.4)) drop-shadow(0 0 5px rgba(255,0,255, 0.4));
-  }*/
-  0% {
-    filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(214,177,14, 0.4)) drop-shadow(0 0 5px rgba(214,177,14, 0.4));
-    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(214,177,14, 0.4)) drop-shadow(0 0 5px rgba(214,177,14, 0.4));
-  }
-  60% {
-    filter: drop-shadow(0 0 2px rgba(43,0,34, 1)) drop-shadow(0 0 10px rgba(214,177,14, 1)) drop-shadow(0 0 5px rgba(214,177,14, 1));
-    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 1)) drop-shadow(0 0 10px rgba(214,177,14, 1)) drop-shadow(0 0 5px rgba(25214,177,14, 1));
-  }
-  100% {
-    filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(214,177,14, 0.4)) drop-shadow(0 0 5px rgba(214,177,14, 0.4));
-    -webkit-filter: drop-shadow(0 0 2px rgba(43,0,34, 0.4)) drop-shadow(0 0 10px rgba(214,177,14, 0.4)) drop-shadow(0 0 5px rgba(214,177,14, 0.4));
   }
 }
 
@@ -1432,22 +1286,13 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
 	color:#cf9c41;
 }
 .popoverglow {
-  /* hw
   text-shadow: 0 0 2px #2b002b, 0 0 5px #c0c, 0 0 2px #f0f;
   color:white;
-  */
-  text-shadow: 0 0 2px #715e0a, 0 0 5px #d6b10e, 0 0 2px #ffd000;
-  color:black;
 }
 .titlepopoutrightmini{
-  /*
    text-shadow: 1px 1px #9d009d, 
                 2px 2px #9d009d, 
                 3px 3px #9d009d;
-  */     
-  text-shadow: 1px 1px #1f3754, 
-                2px 2px #1f3754, 
-                3px 3px #1f3754;           
 }
 .titlepopoutrightminigreen{
    text-shadow: 1px 1px #307b30, 
@@ -1455,12 +1300,8 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
                 3px 3px #307b30;
 }
 .popoverrightmini{
-   /* hw
    text-shadow: 1px 1px #ff9fff, 
                 2px 2px #ff9fff;
-   */                
-   text-shadow: 1px 1px #ffd000, 
-                2px 2px #ffd000;
 }
 .titlepopout-right-mini-grey-glow{
    text-shadow: 1px 1px #565656, 
@@ -1491,16 +1332,10 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
                 2px 2px #565656;
 }
 .titlepopoutrightminiinverse{
-   /*
    color: #e84fe8;
    text-shadow: 1px 1px #000, 
                 2px 2px #000, 
                 3px 3px #000;
-   */     
-   color: #d6b10e;
-   text-shadow: 1px 1px #000, 
-                2px 2px #000, 
-                3px 3px #000;            
 }
 .popover{
 	width: 100%;
@@ -1562,10 +1397,7 @@ Due to the split circle of cprogress-left and cprogress right, we must use the a
 }
 
 input:checked + .slider {
-  /* hw
   background-color: #ab21f3;
-  */
-  background-color: #d6b10e;
 }
 
 input:focus + .slider {
@@ -1588,11 +1420,7 @@ input:checked + .slider:before {
 } 
 
 .dropdown-item:hover {
-  /* hw
   background-color: rgb(255, 0, 255);
-  color: black;
-  */
-  background-color: #ffd000;
   color: black;
 }
 .dropdown-item-p3d:hover {
@@ -1601,10 +1429,7 @@ input:checked + .slider:before {
 }
 
 .nav-pills .show>.nav-link {
-  /* hw
   background-color: #f0f;
-  */
-  background-color: #ffb314;
 }
 
 /* alertify modifications for fomo3d */
