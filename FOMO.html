@@ -1,0 +1,1111 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<!-- metatags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="theme-color" content="#343a40">
+
+	<!-- SEO related -->
+	<meta name="keywords" content="Ethereum, Rich 3D">
+
+	<!-- icons -->
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+
+	<!-- css -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/alertify.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="css/ghostframe.css">
+	<link rel="stylesheet" href="css/fonts.googleapis.css">
+	<script src="https://code.jquery.com/jquery-3.2.0.min.js"></script>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<style type="text/css">#loading {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 1);
+			z-index: 15000;
+		}
+	</style>
+	<title>Rich 3D</title>
+</head>
+
+<body>
+	<div id="loading">
+	</div>
+
+	<!-- modal loading -->
+	<div class="modal fade" id="initLoading" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 9999999;">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content bg-dark text-dark">
+				<div class="modal-body" style="padding-top:1.5rem; padding-bottom:1.5rem;">
+					<div class="row justify-content-between">
+						<div class="col-auto">
+							加载中...
+						</div>
+						<div class="col-2">
+							<div class="miniloader"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /modal loading -->
+	<div id="main-wrapper">
+		<!-- navigation -->
+		<header class="topbar fixed-top">
+			<state-navbar>
+				<nav class="navbar navbar-expand-lg navbar-dark bg-dark jumboshade" id="topbar">
+					<div class="container">
+						<!-- NOTE: will be replaced by a smexy Logo once Justo makes one -->
+						<a class="navbar-brand" style="font-size:1.5rem" href="javascript:void(0)">Rich 3D</a>
+						<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+						 aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<!-- NOTE: Adjust "active" state accordingly -->
+						<div class="collapse navbar-collapse flex-column" id="navbarNav">
+							<ul class="nav nav-pills w-100">
+
+								<li class="nav-item">
+									
+								</li>
+								
+								<li class="nav-item mr-auto">
+									
+								</li>
+								
+								<li class="nav-item" style="margin:10px">
+									<a href="javascript:void(0)" id="wechatAhref">
+										<img src="img/wechat_logo.png" width="25" height="25" />
+									</a>
+								</li>
+								
+								<li class="dropdown nav-item-top">
+									<a class="dropdown-toggle nav-link nav-link-purp" data-toggle="dropdown" href="#">更多
+										<span class="caret"></span>
+									</a>
+									<div class="dropdown-menu">
+										<a class="dropdown-item dropdown-item" target="_blank" href="Rich3D_wiki.pdf">Rich 3D电脑端浏览器玩法
+										</a>
+										<a class="dropdown-item dropdown-item" target="_blank" href="Rich3D_mobile_wiki.pdf">Rich 3D手机端玩法
+										</a>
+										<a class="dropdown-item dropdown-item" target="_blank" href="Rich3D_intro.pdf">Rich 3D简介</a>
+										<a class="dropdown-item dropdown-item" target="_blank" href="latest_release.apk">Trust钱包</a>
+										<a class="dropdown-item dropdown-item" target="_blank" href="https://etherscan.io/address/0x76ac336Ba076308b768128278FF4902359E69713">Rich 3D合约地址</a>
+										<a class="dropdown-item dropdown-item" target="_blank" href="advice-kit.html">邀请</a>
+									</div>
+								</li>
+							</ul>
+							<ul class="nav nav-tabs tabs-border-adjust w-100 text-light no-mobile">
+								<div style="min-width: 7rem" class="col-auto">
+									<i class="fas fa-stopwatch"></i>
+									<span class="boxtimer lead small">00:00 </span>
+								</div>
+								<div class="col-auto yourkeys">
+									<i class="fas fa-key"></i>
+									<span class="lead small keycount"> {{yourkeys}} </span>
+								</div>
+								<div class="col-auto airdrop">
+									<i class="fas fa-parachute-box"></i>
+									<span class="airdropcounter lead small">{{airdropTracker}}% ({{airdropPot}} ETH)</span>
+								</div>
+								<div class="col-auto mr-auto afflink">
+									<i class="fas fa-link"></i>
+									<span class="lead small" v-if="!isCEO">
+										<a href="javascript:void(0)" class="buyceo glow" onclick="buyceo()">注册一个名字</a>
+									</span>
+									<span class="lead small" v-if="isCEO">{{myLinkName}}</span>
+								</div>
+								<div class="col-auto">
+									<span class="small">指引</span>
+									<label class="switch">
+										<input id="tutorialswitch" type="checkbox" checked>
+										<span class="slider round"></span>
+									</label>
+								</div>
+							</ul>
+
+						</div>
+					</div>
+					<div id="countdown_board" style="display: none; width:100%; min-height:55px; background:black; position:float;float:right; top:88px; z-index: 9999">
+							<div style="float: center;text-align: left;">
+								<h5 id="coundown_time" style="padding:5px;text-shadow: 0 0 5px #715e0a, 0 0 20px #d6b10e, 0 0 10px #ffd000;color:#F22105;"></h5>
+							</div>
+						</div>
+				</nav>
+				
+			</state-navbar>
+			<!--haha-->
+			
+		</header>
+		<!-- /navigation -->
+		<!-- noscript message -->
+		<noscript>
+			<div class="row">
+				<div class="col">
+					<div class="alert alert-purp pulse text-center text-dark" role="alert" style="margin-top:8rem;">请激活Javascript来玩Rich 3D</div>
+				</div>
+			</div>
+		</noscript>
+		<!-- /noscript -->
+		<!-- modal loading -->
+		<div class="modal fade" id="loading" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 99999999;">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content text-light" style="background-color: #1e4d51;">
+					<div class="modal-body" style="padding-top:1.5rem; padding-bottom:1.5rem;">
+						<div class="row justify-content-between">
+							<div class="col-auto">
+								请检测您的MetaMask...
+							</div>
+							<div class="col-2">
+								<div class="miniloader"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /modal loading -->
+		<!-- modal vanity -->
+		<div class="modal fade" id="vanity" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content text-light" style="background-color: #1e4d51;">
+					<div class="modal-body" style="padding-top:1.5rem; padding-bottom:1.5rem;">
+						<!-- Name chooser -->
+						<div class="row">
+							<div class="col">
+								<p class="lead nomarginb">在区块链上注册你的名字</p>
+							</div>
+							<div class="col-auto">
+								<p class="text-right nomarginb">
+									<a href="#" class="closemodal">
+										<i class="fas fa-times"></i>
+									</a>
+								</p>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col">
+								<div class="row">
+									<div class="col">
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<button class="btn btn-outline-yel" type="button" id="randomName">随机</button>
+											</div>
+											<input class="form-control text-center" type="text" placeholder="在此输入" id="nameInput" />
+										</div>
+									</div>
+								</div>
+								<p class="small">
+									<br> 命名规则:
+									<br>
+									-最多32位字符
+									<br> -A-Z (小写)
+									<br> -命名不能是
+									<i>纯</i>数字
+									<br> -不能用特殊符号
+									<br> -字符之间不能超过一个空格
+									<br>
+									<br> 如果交易失败，其中一项标准未被满足。
+									<br>
+									<br> 名字是永久属于您的。但只是最新的名字会展示在排行榜/游戏界面。您能拥有许多您喜欢的名字
+									<br>
+									<br> 完成它吧.
+								</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<button class="btn btn-purp btn-block btn-lg" id="namePurchase">
+									<i class="fab fa-ethereum"></i>注册</button>
+								<!-- <p style="font-size:0.7rem;color:#afafaf"> The fee is distributed across community members who made this game possible.</p> -->
+							</div>
+						</div>
+						<!-- /Name chooser -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /modal vanity -->
+		<div class="modal fade" id="invitingBox" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 99999999999;">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content text-light" style="background-color: #1e4d51;">
+					<div class="modal-body" style="padding-top:1.5rem; padding-bottom:1.5rem;">
+						<!-- Name chooser -->
+						<div class="row">
+							<div class="col">
+								<p class="lead nomarginb">请输入邀请码(邀请码必须为数字)</p>
+							</div>
+							<div class="col-auto">
+								<p class="text-right nomarginb">
+								</p>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col">
+								<div class="row">
+									<div class="col">
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<button class="btn btn-outline-yel" type="button">邀请码</button>
+											</div>
+											<input class="form-control text-center" type="text" placeholder="在此输入" id="inviteIdInput" />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<button class="btn btn-purp btn-block btn-lg" id="inputInviting">
+									<i class="fab fa-ethereum"></i>提交</button>
+								<!-- <p style="font-size:0.7rem;color:#afafaf"> The fee is distributed across community members who made this game possible.</p> -->
+							</div>
+						</div>
+						<!-- /Name chooser -->
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /modal vanity -->
+	</div>
+
+	<div id="spacer" class="spacer"></div>
+	<!-- main content (exchangeable) -->
+	<module-template>
+		<div id="centerArea">
+			<!-- fomo	-->
+			<!-- NOTE: Displays the current pot size in ETH as well as time left in current round -->
+			<div class="blurryboy" v-if="!gracePeriod"></div>
+			<div class="blurryboydark" v-if="gracePeriod"></div>
+
+			<div class="jumbotron rounded-0 text-center text-dark teaser-cover" v-if="!roundHasPassed">
+				<div class="container">
+					<h4 class="display-4 scammed" style="font-style: italic;" v-if="!playerIsLeader && currentRound8 && currentRound8 !=  '0x0000000000000000000000000000000000000000000000000000000000000000'">
+						{{value1}} 正在</h4>
+					<h4 class="display-4 scammed" style="font-style: italic;" v-if="!playerIsLeader && currentRound8 && currentRound8 ==  '0x0000000000000000000000000000000000000000000000000000000000000000'">
+						有人正在</h4>
+					<h1 class="display-1 scammed" v-if="!playerIsLeader && !gracePeriod">退出游戏</h1>
+					<h1 class="display-1 scammed" v-if="playerIsLeader && !gracePeriod">您就是赢家</h1>
+					<h1 class="display-1 scammed" v-if="!playerIsLeader && gracePeriod">准备阶段</h1>
+					<h1 class="display-1 scammed" v-if="playerIsLeader && gracePeriod">您正在准备阶段</h1>
+					<h2 class="display-3" v-if="gracePeriod">
+						<span class="ethglitch titleglow">{{value2}}
+							<i class="fab fa-ethereum ethglow"></i>
+						</span>
+					</h2>
+					<h2 class="display-3" v-if="!gracePeriod">
+						<span class="ethglitch titleglow">{{value3}}
+							<i class="fab fa-ethereum ethglow"></i>
+						</span>
+						<span class="headtimer">{{stopwatch}}</span>
+					</h2>
+					<h3 v-if="gracePeriod" class="display-5" style="margin-top:50px;">ICO 倒计时
+						<span class="headtimer" style="display:inline;font-size:inherit;">{{stopwatch}}</span>
+					</h3>
+
+					<h5 class="display-5" v-if="playerIsLeader  && !gracePeriod">如果没有人购买Key, 您将赢得最终大奖!</h5>
+					<!-- <h4 v-if="gracePeriod" class="lead">ICO 阶段: A short 1 Hour interlude. Sent eth will be rejected; wait for the round to start for the  <a class="titlepopoutrightmini">first</a> and <a class="titlepopoutrightmini">cheapest</a> keys</b> </h4> -->
+
+					<!-- Button Handling for Buy 1x More;  -->
+					<!-- This button appears when the player in the lead has a vanity name  -->
+					<a href="javascript:void(0)" v-if="!playerIsLeader && !gracePeriod && currentRound8 !=  '0x0000000000000000000000000000000000000000000000000000000000000000'"
+					 class="buyOneTicket btn btn-lg btn-block btn-purp pulse marginb text-light" onclick="buyOneTicket()">
+						<div class=row>
+							<div class="col-sm-1.5 no-mobile" style="padding-left: 10px">
+								1x
+								<i class="fas fa-key"></i>
+							</div>
+							<div class=col-sm-11>
+								<span style="margin-right: 1rem;margin-left: -1rem" class="only-mobile mobile-text">1x
+									<i class="fas fa-key"></i>
+								</span>
+								{{buyButtonMessagePlayer}}
+							</div>
+						</div>
+					</a>
+
+					<!-- This button appears when the player in the lead does not have a vanity name  -->
+					<a href="javascript:void(0)" v-if="!playerIsLeader && !gracePeriod && currentRound8 ==  '0x0000000000000000000000000000000000000000000000000000000000000000'"
+					 class="buyOneTicket btn btn-lg btn-block btn-purp pulse marginb text-dark" onclick="buyOneTicket()">
+						<div class=row>
+							<div class="col-sm-1.5 no-mobile" style="padding-left: 10px">
+								1x
+								<i class="fas fa-key"></i>
+							</div>
+							<div class=col-sm-11>
+								<span style="margin-right: 1rem;margin-left: -1rem" class="only-mobile mobile-text">1x
+									<i class="fas fa-key"></i>
+								</span>
+								{{buyButtonMessageAnon}}
+							</div>
+						</div>
+					</a>
+
+				</div>
+			</div>
+
+			<!-- So and So has EXIT SCAMMED -->
+			<div class="jumbotron rounded-0 text-center text-dark teaser-cover marginb" v-if="roundHasPassed">
+				<div class="container">
+
+					<!-- Grouped up into elements w/ conditionals per winner or not winning case -->
+					<h1 class="display-1 scammed" v-if="playerIsLeader">您退出游戏</h1>
+					<h1 class="display-1 scammed" v-if="!playerIsLeader">退出游戏</h1>
+
+					<!-- Eth Amount -->
+					<h2 class="display-3">
+						<span class="ethglitch titleglow">{{value3}}
+							<i class="fab fa-ethereum ethglow"></i>
+						</span>
+						<span class="headtimer" v-if="!playerIsLeader">获奖者
+							<a href="javascript:void(0)">{{value4}}</a>!</span>
+					</h2>
+
+					<!-- Custom RNG winner text -->
+					<h6 class="display-5 scammed" v-if="!gracePeriod && playerIsLeader">您将获取大概50%的奖池,并分享剩余的分红</h6>
+					<h6 class="display-5 scammed" v-if="gracePeriod && playerIsLeader">您获取大概50%的奖池,并分享剩余的分红</h6>
+					<h6 class="display-5 scammed titlepopoutrightmini" v-if="playerIsLeader">
+						<i>{{exitScamTheft}}</i>
+					</h6>
+
+					<div style="position: relative;">
+						<h3 class="display-5" style="margin-top:50px;">有
+							<strong>{{value5}}</strong> 奖池里有大量的ETH.
+							<span>
+								您将获得最后的大奖,想要吗?</span>
+						</h3>
+
+						<!-- This button appears when an exit scam has finished, and a new ICO phase needs to start -->
+						<a href="javascript:void(0)" class="buyOneTicket btn btn-lg btn-block btn-purp pulse marginb" onclick="buyOneTicket()">
+							<div class=row>
+								<div class=col-sm-1.5 style="padding-left: 10px">
+									1x
+									<i class="fas fa-key"></i>
+								</div>
+								<div class=col-sm-11>
+									开始您的游戏之旅
+								</div>
+							</div>
+						</a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- /fomo -->
+		<div class="container" style="margin-top:-1rem;">
+			<div class="row cta-ticket" style="margin-top:-5rem;">
+				<div class="col">
+					<div class="alert alert-purp pulse text-center text-dark" role="alert">买一个Key开始一个新的回合</div>
+				</div>
+			</div>
+			<div class="row">
+
+				<!-- biddings & vault -->
+				<div class="col-sm">
+
+					<ul class="nav nav-tabs tabs-border-adjust" id="buyTabs" role="tablist">
+						<li class="nav-item tab-item">
+							<a class="nav-link tab-link active" id="purchaseTab" data-toggle="tab" href="#purchaseArea" role="tab" aria-controls="purchaseArea"
+							 aria-selected="true">购买</a>
+						</li>
+						<li class="nav-item tab-item">
+							<a class="nav-link tab-link" id="vaultTab" data-toggle="tab" href="#vaultArea" role="tab" aria-controls="vaultArea" aria-selected="false">收益</a>
+						</li>
+						<li class="nav-item tab-item">
+							<a class="nav-link tab-link" id="refTab" data-toggle="tab" href="#refArea" role="tab" aria-controls="refArea" aria-selected="false">邀请玩家</a>
+						</li>
+					</ul>
+					<div class="tab-content" id="buyArea">
+						<!-- biddings -->
+						<div class="tab-pane fade show active" id="purchaseArea" role="tabpanel" aria-labelledby="purchaseArea">
+							<div class="jumbotron jumbotron-adjust text-dark bg-light jumboshade tab-rounded">
+								<div class="row">
+									<div class="col" v-if="!roundHasPassed">
+										<p class="lead nomarginb">Key</p>
+									</div>
+									<div class="col" v-if="roundHasPassed">
+										<p class="lead nomarginb">准备阶段</p>
+									</div>
+									<div class="col-auto">
+										<p class="text-right nomarginb tutorial">
+											<i class="fas fa-arrow-right pulsetutorial tutorialArrow"></i>
+											<a tabindex="0" type="button" class="qbtn" role="button" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom"
+											 title="退出游戏与您!" data-content="purchase">
+												<i class="far fa-question-circle"></i>
+											</a>
+										</p>
+									</div>
+								</div>
+								<hr>
+								<!-- Ticket Purchase -->
+								<!-- NOTE: Ticket purchase should update the ETH value to how much is actually going to be paid by the player, as well as update the time limit extension (NaN Minutes) accordingly -->
+								<div class="row">
+									<div class="col">
+										<div id="purchase" class="tab-pane fade show active" role="tabpanel">
+											<p class="font-weight-light small" v-if="!roundHasPassed" id="airdrop_chance">购买0.1 ETH或更多将有{{airdropTracker}}%的机会赢得{{airdropPot}} ETH 空投, 赶紧加入吧!</p>
+											<p class="text-center" v-if="roundHasPassed">使用ETH购买开始下一回合</p>
+											<div class="row" id="purchase" v-if="!roundHasPassed">
+												<div class="col">
+													<div class="input-group mb-3">
+														<div class="input-group-prepend">
+															<span class="input-group-text">
+																<i class="fas fa-key"></i>
+															</span>
+														</div>
+														<input type="text" id="tixToBuy" class="form-control text-center" value="1">
+														<a style="padding:10px;">Key</a>
+														<div class="input-group-append">
+															<span class="input-group-text" id="tixQuotation">
+																@ {{totalEth}} ETH
+															</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row" v-if="roundHasPassed">
+												<div class="col">
+													<div id="purchase" class="tab-pane fade show active" role="tabpanel">
+														<div class="row" id="purchase">
+															<div class="col">
+																<div class="input-group mb-3">
+																	<div class="input-group-prepend">
+																		<span class="input-group-text">
+																			<i class="fab fa-ethereum"></i>
+																		</span>
+																	</div>
+																	<input type="text" id="ethToSpend" class="form-control text-center" value="0.01 ETH">
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="row marginb" v-if="!roundHasPassed">
+												<div class="col">
+													<div class="btn-group d-flex" role="group">
+														<button id="addOne" class="btn btn-outline-yel w-100 increment">+ 1 Key</button>
+														<button id="addTwo" class="btn btn-outline-yel w-100 increment">+ 2 Key</button>
+														<button id="addFive" class="btn btn-outline-yel w-40 increment">+ 5</button>
+														<button id="addTen" class="btn btn-outline-yel w-30 increment">+ 10</button>
+														<button id="addHundred" class="btn btn-outline-yel w-30 increment">+ 100</button>
+													</div>
+												</div>
+											</div>
+											<div class="row" style="position: relative;" v-if="!roundHasPassed">
+												<div class="col">
+													<button type="button" id="tixBuy" class="btn btn-block btn-purp btn-lg ticketProcess">
+														<i class="fab fa-ethereum"></i> 使用ETH购买</button>
+												</div>
+												<div class="col">
+													<button type="button" id="tixReinvest" class="btn btn-block btn-outline-purp btn-lg ticketProcess">
+														<i class="fas fa-piggy-bank"></i> 使用分红购买</button>
+												</div>
+											</div>
+											<p class="small text-center" if={!$this.gracePeriod}>使用ETH或使用分红购买!</p>
+										</div>
+									</div>
+								</div>
+								<!-- Team Selector -->
+								<hr>
+								<div class="row marginb">
+									<div class="col">
+										<p class="lead nomarginb">选择战队</p>
+									</div>
+									<div class="col-auto">
+										<p class="text-right nomarginb tutorial">
+											<i class="fas fa-arrow-right pulsetutorial tutorialArrow"></i>
+											<a tabindex="0" type="button" class="qbtn" role="button" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom"
+											 title="选择ETH如何流向!" data-content="teamselect">
+												<i class="far fa-question-circle"></i>
+											</a>
+										</p>
+									</div>
+								</div>
+								<div class="row marginb distribution">
+									<div class="col">
+										<div class="row">
+											<div class="col-3 team">
+												<label class="teamselector">
+													<input class="form-check-input form-radio teamsave" type="radio" autocomplete="off" name="teamselect" value="2" id="teamsnek">
+													<img src="img/tsnek.png" alt="">
+													<h5>孙小美</h5>
+													<p>最多分红</p>
+												</label>
+												<div>
+													<p style="color:#F22105">++ 最多分红</p>
+												</div>
+											</div>
+											<div class="col-3 team">
+												<label class="teamselector">
+													<input class="form-check-input form-radio teamsave" type="radio" autocomplete="off" name="teamselect" value="0" id="teamwhale">
+													<img src="img/twhale.png" alt="">
+													<h5>钱夫人</h5>
+													<p>最多奖池</p>
+												</label>
+												<p style="color:#F22105">++ 最多奖池</p>
+											</div>
+											<div class="col-3 team">
+												<label class="teamselector">
+													<input class="form-check-input form-radio teamsave" type="radio" autocomplete="off" name="teamselect" value="3" id="teambull">
+													<img src="img/tbull.png" alt="">
+													<h5>阿土伯</h5>
+													<p>兼顾各方，分红占优</p>
+												</label>
+												<p style="color:#F22105">+ 兼顾各方，分红占优</p>
+
+											</div>
+											<div class="col-3 team">
+												<label class="teamselector">
+													<input class="form-check-input form-radio teamsave" type="radio" autocomplete="off" name="teamselect" value="1" id="teambear">
+													<img src="img/tbear.png" alt="">
+													<h5>大老千</h5>
+													<p>均衡分配</p>
+												</label>
+												<p style="color:#F22105">++ 均衡分配</p>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col">
+												<div class="chart"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- /Team Selector -->
+								<!--<p class="small text-center">Your purchase will extend the game by a total of <span class="extender">NaN</span> Minutes.</p> -->
+							</div>
+						</div>
+						<!-- /biddings -->
+						<!-- vault -->
+						<div class="tab-pane fade" id="vaultArea" role="tabpanel" aria-labelledby="vaultArea">
+							<div class="jumbotron jumbotron-adjust text-dark bg-light jumboshade tab-rounded">
+								<div class="row">
+									<div class="col">
+										<p class="lead nomarginb">分红</p>
+									</div>
+									<div class="col-auto">
+										<p class="text-right nomarginb tutorial">
+											<i class="fas fa-arrow-right pulsetutorial tutorialArrow"></i>
+											<a tabindex="0" type="button" class="qbtn" role="button" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom"
+											 title="保险库：放置收益的地方" data-content="vault">
+												<i class="far fa-question-circle"></i>
+											</a>
+										</p>
+									</div>
+								</div>
+								<hr>
+								<div class="jumbotron jumbotron-adjust teamscore">
+									<div class="row">
+										<div class="col">
+											<p class="lead">锁定收益</p>
+										</div>
+										<div class="col">
+											<p class="h3 text-right" label=poteth>{{onLockdownEth}} ETH</p>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col">
+											<p class="lead">分红收益</p>
+										</div>
+										<div class="col">
+											<p class="h3 text-right">{{exitScammedEth}} ETH</p>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col">
+											<p class="lead">邀请收益</p>
+										</div>
+										<div class="col">
+											<p class="h3 text-right">{{bacAdviceEth}} ETH</p>
+										</div>
+									</div>
+
+									<hr>
+									<div class="row">
+										<div class="col">
+											<p class="lead">未提现总收益</p>
+										</div>
+										<div class="col">
+											<p class="h3 text-right glow">{{totalGainsEth}} ETH</p>
+											<!-- <p class="text-right">&#8793; {{totalGainsUSDT}} 美元</p> -->
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col">
+											<p class="text-right nomarginb">
+												<button href="" class="btn btn-outline-purp btn-block" id="withdrawEarnings">
+													<i class="fas fa-hand-holding-heart"></i> 提现到钱包</button>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /vault -->
+
+						<!-- vanity -->
+						<div class="tab-pane fade" id="refArea" role="tabpanel" aria-labelledby="refArea">
+							<div class="jumbotron jumbotron-adjust text-dark bg-light jumboshade tab-rounded">
+								<div class="row">
+									<div class="col">
+										<p class="lead nomarginb">邀请</p>
+									</div>
+									<div class="col-auto">
+										<p class="text-right nomarginb tutorial">
+											<i class="fas fa-arrow-right pulsetutorial tutorialArrow"></i>
+											<a tabindex="0" type="button" class="qbtn" role="button" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom"
+											 title="可能是贿赂" data-content="referral">
+												<i class="far fa-question-circle"></i>
+											</a>
+										</p>
+									</div>
+								</div>
+								<hr>
+								<div class="jumbotron jumbotron-adjust teamscore">
+
+									<div class="row" v-if="!isCEO">
+										<div class="col">
+											<p>注册一个唯一的名字,并永久解锁邀请系统.</p>
+										</div>
+									</div>
+									<div class="row" v-if="!isCEO">
+										<div class="col">
+											<button href="" class="btn btn-purp btn-block buyceo" onclick="buyceo()">
+												<i class="fas fa-check"></i> 注册一个名字在邀请中使用</button>
+										</div>
+									</div>
+									<div class="row" v-if="isCEO">
+										<div class="col">
+											<p class="font-weight-light">邀请其他玩家参与游戏，并获取他投资的10%。</p>
+										</div>
+									</div>
+									<div class="row" v-if="isCEO">
+										<div class="col text-center">
+											<!-- <p>
+												<span>钱包邀请</span>
+												<br>
+												<span class="small" id="ceolink">{{myLink}}</span>
+												<br>
+												<button class="btn btn-outline-purp copyBtn" id="copyCeoLink" data-clipboard-target="#ceolink">
+													<i class="fas fa-paste"></i> 复制</button>
+											</p> -->
+											<p>
+												<span>邀请链接</span>
+												<br>
+												<span class="small" id="ceolinkid">{{myLinkid}}</span>
+												<br>
+												<button class="btn btn-outline-purp copyBtn" id="copyCeoLink" data-clipboard-target="#ceolinkid">
+													<i class="fas fa-paste"></i> 复制</button>
+											</p>
+											<!-- <p>
+												<span>昵称邀请</span>
+												<br>
+												<span class="small" id="ceolinkvanity">{{myLinkName}}</span>
+												<br>
+												<button class="btn btn-outline-purp copyBtn" id="copyCeoLink" data-clipboard-target="#ceolinkvanity">
+													<i class="fas fa-paste"></i> 复制</button>
+											</p> -->
+										</div>
+									</div>
+									<div class="row" v-if="isCEO">
+										<div class="col">
+											<button href="javascript:void(0)" class="btn btn-outline-purp btn-block buyceo" onclick="buyceo()">
+												<i class="fas fa-check"></i> 注册一个新名字</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /vanity -->
+					</div>
+				</div>
+
+				<!-- stat tabs -->
+				<div class="col-sm">
+					<!-- tabs -->
+					<ul class="nav nav-tabs tabs-border-adjust" id="statTabs" role="tablist">
+						<li class="nav-item tab-item">
+							<a class="nav-link tab-link active" id="potTab" data-toggle="tab" href="#potArea" role="tab" aria-controls="potArea" aria-selected="true">回合</a>
+						</li>
+						
+						<li class="nav-item tab-item">
+							<a class="nav-link tab-link" id="teamTab" data-toggle="tab" href="#teamArea" role="tab" aria-controls="teamArea" aria-selected="false">战队统计</a>
+						</li>
+						<!--
+						<li class="nav-item tab-item">
+							<a class="nav-link tab-link" id="playerTab" data-toggle="tab" href="#playerArea" role="tab" aria-controls="playerArea" aria-selected="false">最近玩家</a>
+						</li>
+					-->
+						<li class="nav-item tab-item">
+							<a class="nav-link tab-link" id="statsTab" data-toggle="tab" href="#statsArea" role="tab" aria-controls="statsArea" aria-selected="false">投资统计</a>
+						</li>
+					</ul>
+
+					<!-- tabbable areas -->
+					<div class="tab-content" id="statArea">
+						<!-- current pot -->
+						<div class="tab-pane fade show active" id="potArea" role="tabpanel" aria-labelledby="potArea">
+
+							<div class="jumbotron jumbotron-adjust text-dark bg-light jumboshade tab-rounded">
+								<div class="row">
+									<div class="col">
+										<p class="lead nomarginb">回合 #{{currentRound}}</p>
+									</div>
+									<div class="col-auto">
+										<p class="text-right nomarginb tutorial">
+											<i class="fas fa-arrow-right pulsetutorial tutorialArrow"></i>
+											<a tabindex="0" type="button" class="qbtn" role="button" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom"
+											 title="回合信息:" data-content="games">
+												<i class="far fa-question-circle"></i>
+											</a>
+										</p>
+									</div>
+								</div>
+								<hr>
+								<div class="row nomarginb margin-top" v-if="!roundHasPassed">
+									<div class="col">
+										<!-- NOTE: Time limit counter -->
+										<p class="h2 text-center" v-if="playerIsLeader">您正在退出游戏
+											<br>
+											<span class="glow boxtimer"></span>
+										</p>
+										<p class="h2 text-center" v-if="!playerIsLeader">距离结束
+											<br>
+											<span class="glow boxtimer"></span>
+										</p>
+									</div>
+								</div>
+								<div class="row nomarginb margin-top" v-if="roundHasPassed">
+									<div class="col" style="position: relative;">
+										<!-- NOTE: Time limit counter -->
+										<p class="h6 text-center">大奖就在那里,
+											您还在等什么?</p>
+										<a style="margin-bottom:40px;" href="javascript:void(0)" class="buyOneTicket btn btn-lg btn-block btn-purp pulse" onclick="buyOneTicket()">
+											购买一个
+											<i class="fas fa-key"></i> 让自己获取大奖的机会!</a>
+									</div>
+								</div>
+								<div class="row marginb" v-if="!roundHasPassed">
+									<div class="col">
+										<div class="progress">
+											<div class="progress-bar boxglow" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+										</div>
+									</div>
+								</div>
+								<div class="jumbotron jumbotron-adjust teamscore">
+									<div class="row nomarginb">
+										<div class="col-auto">
+											<p class="h4" v-if="!roundHasPassed">奖池金额</p>
+											<p class="h4" v-if="roundHasPassed">未领取的奖金</p>
+										</div>
+										<div class="col">
+											<!-- NOTE: Display of current pot size as well as converted USDT value -->
+											<p class="h2 text-right glow ethglitch" v-if="!roundHasPassed">{{activePot1}}
+												<i class="fab fa-ethereum ethglow"></i>
+											</p>
+											<p class="h2 text-right glow ethglitch" v-if="roundHasPassed">{{activePot2}}
+												<i class="fab fa-ethereum ethglow"></i>
+											</p>
+										</div>
+									</div>
+									<div class="row marginb">
+										<!-- <div class="col text-right" v-if="!roundHasPassed">&#8793; {{activePot1USDT}} 美元</div>
+										<div class="col text-right" v-if="roundHasPassed">&#8793; {{activePot2USDT}} 美元</div> -->
+									</div>
+									<div class="row nomarginb" v-if="!roundHasPassed">
+										<div class="col">
+											<p class="h4">您的Key数量</p>
+										</div>
+										<div class="col">
+											<p class="h2 text-right">{{yourKeys}}
+												<i class="fas fa-key"></i>
+											</p>
+										</div>
+									</div>
+									<div class="row marginb" v-if="!roundHasPassed">
+										<div class="col text-right">总计 {{totalKeys}} Key</div>
+									</div>
+									<div class="row nomarginb">
+										<div class="col">
+											<p class="h4">您的收益</p>
+										</div>
+										<div class="col">
+											<p class="h2 text-right">{{yourEarnings}}
+												<i class="fab fa-ethereum"></i>
+											</p>
+										</div>
+									</div>
+									<div class="row marginb">
+										<div class="col text-right">
+											<!-- &#8793; {{yourEarningsUSDT}} 美元 -->
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /current pot -->
+
+						<!-- teams -->
+						<div class="tab-pane fade" id="teamArea" role="tabpanel" aria-labelledby="teamArea">
+							<div class="jumbotron jumbotron-adjust text-dark bg-light jumboshade tab-rounded">
+								<div class="row">
+									<div class="col">
+										<p class="lead nomarginb">战队</p>
+									</div>
+									<div class="col-auto">
+										<p class="text-right nomarginb tutorial">
+											<i class="fas fa-arrow-right pulsetutorial tutorialArrow"></i>
+											<a tabindex="0" type="button" class="qbtn" role="button" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom"
+											 title="挑选一个战队，怒视那些不在您的战队的人。" data-content="teams">
+												<i class="far fa-question-circle"></i>
+											</a>
+										</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="jumbotron jumbotron-adjust text-center teamscore">
+											<p class="lead">钱夫人</p>
+											<img src="img/twhale.png" width="25%"></img>
+											<hr>
+											<p class="glow-yel">{{twhale}} ETH</p>
+										</div>
+									</div>
+									<div class="col">
+										<div class="jumbotron jumbotron-adjust text-center	teamscore">
+											<p class="lead">大老千</p>
+											<img src="img/tbear.png" width="25%"></img>
+											<hr>
+											<p class="glow-yel">{{tbear}} ETH</p>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<div class="jumbotron jumbotron-adjust text-center	teamscore">
+											<p class="lead">阿土伯</p>
+											<img src="img/tbull.png" width="25%"></img>
+											<hr>
+											<p class="glow-yel">{{tbull}} ETH </p>
+										</div>
+									</div>
+									<div class="col">
+										<div class="jumbotron jumbotron-adjust text-center	teamscore">
+											<p class="lead">孙小美</p>
+											<img src="img/tsnek.png" width="25%"></img>
+											<hr>
+											<p class="glow-yel">{{tsnek}} ETH </p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- /teams -->
+
+						<!-- Stats page -->
+						<div class="tab-pane fade" id="statsArea" role="tabpanel" aria-labelledby="statsArea">
+
+							<div class="jumbotron jumbotron-adjust text-dark bg-light jumboshade tab-rounded">
+								<div class="row">
+									<div class="col">
+										<p class="lead nomarginb">回合 #{{currentRound}} (当前)投资统计</p>
+									</div>
+									<div class="col-auto">
+										<p class="text-right nomarginb tutorial">
+											<i class="fas fa-arrow-right pulsetutorial tutorialArrow"></i>
+											<a tabindex="0" type="button" class="qbtn" role="button" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="bottom"
+											 title="重要信息:" data-content="">
+												<i class="far fa-question-circle"></i>
+											</a>
+										</p>
+									</div>
+								</div>
+								<hr>
+								<div class="jumbotron jumbotron-adjust teamscore">
+
+									<div class="row nomarginb">
+										<div class="col-auto">
+											<p class="h4">玩家总投资:</p>
+										</div>
+										<div class="col">
+											<p class="h2 text-right glow ethglitch">{{totalInvested}}
+												<i class="fab fa-ethereum ethglow"></i>
+											</p>
+										</div>
+									</div>
+									<div class="row marginb">
+										<!-- <div class="col text-right">&#8793; {{totalInvestedUSDT}} 美元</div> -->
+									</div>
+
+									<div class="row nomarginb">
+										<div class="col-auto">
+											<p class="h4">已分红奖励:</p>
+										</div>
+										<div class="col">
+											<p class="h2 text-right glow ethglitch">{{rewards}}
+												<i class="fab fa-ethereum ethglow"></i>
+											</p>
+										</div>
+									</div>
+									<div class="row marginb">
+										<!-- <div class="col text-right">&#8793;{{rewardsUSDT}} 美元 </div> -->
+									</div>
+
+
+									<div class="row nomarginb">
+										<div class="col-auto">
+											<p class="h4">已购时间</p>
+										</div>
+										<div class="col">
+											<p class="h2 text-right glow ethglitch">{{purchasedYear}} 年</p>
+										</div>
+									</div>
+									<div class="row marginb">
+										<div class="col text-right"> {{purchasedSeconds}} 秒</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!-- /tabbable area -->
+
+					<section class="copyright">
+						<p style="font-size:1rem" align=center>
+							&copy; 2018
+							<a>
+								<b> Rich 3D团队</b>
+							</a>. 版权所有.
+							<br />
+						</p>
+					</section>
+				</div>
+				<!-- /stat tabs -->
+
+			</div>
+
+		</div>
+
+		<!-- modal popup -->
+		<div class="modal fade" id="gameover" tabindex="-1" role="dialog" aria-labelledby="gameoverTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content bg-dark text-dark">
+					<div class="modal-header">
+						<h5 class="modal-title" id="gameoverTitle">模板标题</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						模板内容
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /modal popup -->
+	</module-template>
+
+	<module-airdrop>
+		<!-- airdrop custom modal popup -->
+		<div class="container" id="airdrop" style="z-index: 999; display:none;">
+			<div class="row">
+				<div class="col-6" style="position: fixed; bottom:0; left:25%;">
+					<div class="jumbotron jumbotron-adjust jumboshade text-light" style="background-color: #1e4d51;">
+						<div class="row">
+							<div class="col">
+								<div class="row">
+									<div class="col">
+										<p class="lead">空投: 你刚刚中了大奖,</p>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col">
+										<p class="font-weight-light string">您已经获得了至少25%的空投点。</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-auto">
+								<i class="fas fa-parachute-box airdropicon ethglow-its-okay-justo"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /airdrop custom modal popup -->
+	</module-airdrop>
+	<module-modal>
+	</module-modal>
+	<!-- /main content -->
+
+	<!-- phishing warning -->
+	<div class="modal" role="dialog" id="phishingWarning">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content text-light" style="background-color: #1e4d51;">
+				<div class="modal-header">
+					<h5 class="modal-title">注意事项!</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<p>1、游戏8月23日晚上8点准时开放，请看准倒计时</p>
+					<p>2、提前转入的ETH全部原路返还！</p>
+					<p>3、使用邀请链接推广可获得别邀请人投资分红返还！</p>
+					<p>4、合约已开源，开盘时间已写入合约！</p>
+					<!-- <p><a href="https://hackmd.io/s/ryFTfx-Em#">官方中文简易指南 https://hackmd.io/s/ryFTfx-Em</a> (Author: maojk#6803)</p> -->
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-block btn-lg btn-secondary btn-purp" data-dismiss="modal">知道了!</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="float_Content" style="display: none; width:100px; height:100px; background:#ccc; position:absolute; left:100px; top:100px; z-index: 9999">
+		<a href="#" target="_blank">
+			<img src="img/qr_support.jpg" alt="" width="200" height="200" />
+		</a>
+	</div>
+
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/alertify.js"></script>
+	<script src="js/bootstrap.bundle.js"></script>
+	<script src="js/fontawesome-all.min.js"></script>
+	<script src="js/web3.min.js"></script>
+	<script src="js/bignumber.min.js"></script>
+	<script src="js/data-v=20180823200808.js"></script>
+	<script src="js/index-v=20180823200808.js"></script>
+	<script src="js/zh-v=20180823200808.js"></script>
+
+	<script type="text/javascript">
+		$(function () {
+			$("#wechatAhref").hover(function () {
+				var offset = $(this).offset();
+				$('#float_Content').css({ 'left': offset.left - 206, 'top': offset.top });
+				$('#float_Content').show();
+			}, function () {
+				$('#float_Content').hide();
+			});
+		});
+	</script>
+</body>
+
+</html>
