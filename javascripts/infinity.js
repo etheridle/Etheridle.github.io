@@ -107,11 +107,8 @@ var  updatetitotalEth = function(){
             $("#rateId").text(result.rate+"%");
             $("#rateIdCss").css("width",result.rate+"%");
             $("#targetp").text(result.target);
-            if(lang == "en"){
-                $("#loopstepInfo").text(  "Round " +result.loop + "，Stage " +result.step+ " Time Remaining"  );
-            }else{
-                $("#loopstepInfo").text(  "第" +result.loop + "輪，第" +result.step+ "階段倒計時"  );
-            }
+            $("#loopstepInfo").text(  "Round " +result.loop + "，Stage " +result.step+ " Time Remaining"  );
+           
 
             $('#forusvalueusd').text(totalUsd.toLocaleString() + "USD");
             currentTotal = totalEth ;
