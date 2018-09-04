@@ -196,7 +196,7 @@ var loopgetJson = function (tableId,loopId,step,maxstep) {
                                     })
                                 }catch(e){    }
 
-                                if(   (step +1)   > maxstep){
+                                if(   (step +1)   >  maxstep){
                                     try{
                                         var  tempTotal   =  $("#totalEth").text();
                                         var  tempachieved   =  $("#achieved").text();
@@ -323,7 +323,7 @@ function imageAlert(  mesage) {
 
 $('#masterCodeUrl').everyTime('10s',personalTal);
 $('#loopstepInfo').everyTime('1s',CountdownHMS);
-$('#totalEth').everyTime('3s',updatetitotalEth);
+$('#totalEth').everyTime('1s',updatetitotalEth);
 $('#masterCodeUrl').everyTime('35s',checkAccount);
 $('#masterCodeUrl').everyTime('97s',tableRowRun);
 $('#masterCodeUrl').everyTime('90s',LoopPerjackpotAmount);
