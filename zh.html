@@ -1,0 +1,210 @@
+
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>FairDAPP – Infinity is a system built on the Ethereum Virtual Machine designed to explore human behavior using infinite loops of token redistribution through open source smart contract codes and pre-defined rules. </title>
+    <meta name="keywords" content=" FairDAPP – Infinity is a system built on the Ethereum Virtual Machine designed to explore human behavior using infinite loops of token redistribution through open source smart contract codes and pre-defined rules. ">
+    <meta name="description" content=" FairDAPP – Infinity is a system built on the Ethereum Virtual Machine designed to explore human behavior using infinite loops of token redistribution through open source smart contract codes and pre-defined rules. ">
+    <link rel="shortcut icon"   href="images/favicon.ico" />
+    <link rel="bookmark"         href="images/favicon.ico" />
+
+    <script src="javascripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script src="javascripts/bignumber.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="stylesheets/jquery-confirm.min.css" />
+    <script src="javascripts/jquery-1.8.0.min.js"></script>
+    <script src="javascripts/jquery.timers-1.2.js"></script>
+   <script src="javascripts/jquery-confirm.min.js"></script>
+
+<!--
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+-->
+
+    <link href="stylesheets/style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!--头部-->
+<div class="HeadTop">
+    <div class="Logo"><a href="#"><img src="images/logo.png"/></a></div>
+    <ul class="Nav">
+        <li><a href="https://etherscan.io/address/0xfef5497bc53a69875e02ae5b14eeff668f09a729" target="_blank"  >合約</a></li>
+        <li><a href="https://discord.gg/W56eeFK"  target="_blank" >社區</a></li>
+        <li><a href="resource/FairDapp.com-Infinity-Rules.pdf"  target="_blank" >規則</a></li>
+
+    </ul>
+    <div class="Lang">
+        <a href="zh.html" class="China">中文</a>
+        <a href="index.html" class="Eng">Eng</a>
+    </div>
+</div>
+
+<!--超级节点-->
+<div class="InPoint">
+    <p class="PP1" >請確認發送交易的合約地址 :  <a  href="https://etherscan.io/address/0xfef5497bc53a69875e02ae5b14eeff668f09a729" target="_blank"  >0xfef5497bc53a69875e02ae5b14eeff668f09a729</a>   </p>
+    <p class="PP2">
+        <a  id="masterCodeUrl" href="" target="_blank"></a>
+    </p>
+    <p class="PP2"> 推廣鏈接在錢包地址與合約交互後生效 </p>
+
+    <p class="PP2"> 風險提示：受ETH出塊機制所限，網頁數據有可能會產生延遲，一切以鏈上信息為準。 </p>
+
+ <!--   <p class="PP3">
+        <a href="#"><img src="/images/logo2.png"/></a>
+    </p>-->
+</div>
+<h1></h1>
+<div class="InActivet">
+    <div class="ActiveICO"><img src="images/Active.png"/></div>
+    <div class="Number">
+        <span  id="totalEth"> 115.6518 </span>
+    </div>
+    <div class="Number2"><span id="forusvalueusd">...... USD</span></div>
+    <div class="Acchie">
+        <div class="LText">
+            <p class="PP1"><span>完成</span></p>
+            <p class="PP2"  id="achieved">30.1425</p>
+        </div>
+
+        <div class="CText">
+            <p class="PP1" id="rateId"> 72.16%   </p>
+            <p class="PP2">
+                <span  id="rateIdCss"  style=" width:72.16%;">&nbsp;</span>
+            </p>
+        </div>
+
+    <div class="RText">
+            <p class="PP1"><span>目標</span></p>
+            <p class="PP2"  id="targetp"> 41.7725 </p>
+        </div>
+    </div>
+    <div class="Timer"  id="loopstepInfo">第 2 輪，第 16 階段，剩余時間</div>
+    <div class="Hour" id="CountdownHMS">12 H 39 M 32 S</div>
+    <div class="HourWaring"> 在倒計時結束後，如果ETH目標沒有完成，那麽恭喜您，您獲得了大獎和您在本階段發往合約的ETH! </div>
+
+    <div class="TabSelect">
+        <div class="Lefts">
+            <ul class="Tab">
+                <li class="Select">發送ETH</li>
+                <li>金庫</li>
+                <li><span>個人<br/>信息</span></li>
+            </ul>
+            <div class="TabCon">
+                <ul class="Eth tablist">
+                    <li class="TT1"><img src="images/Jian.png"/></li>
+
+                    <li class="TT2"><input type="text" value="0.5"  id="payval"     onkeyup="clearNoNum1(this)"   />    <img src="images/san.png" height="26px">    </li>
+                    <li class="TT3">
+                        <input type="button"  id="payclick"  />
+                    </li>
+                </ul>
+
+                <ul class=" DerviEth tablist" style=" display:none;">
+
+                    <!--<li class="TT3"><input type="button" /></li>-->
+                    <li class="TT1"><img src="images/Fang.png"/></li>
+                    <li class="TT2">
+                        <p class="PP1">分紅</p>
+                        <p class="PP2"><input type="text" value=""  id="Dividend"    readonly="readonly"/></p>
+                    </li>
+                    <li class="TT2">
+                        <p class="PP1">好建議</p>
+                        <p class="PP2"><input type="text" value=""   id="GoodAdvise" readonly="readonly"/></p>
+                    </li>
+                    <li class="TT2">
+                        <p class="PP1">累計收益</p>
+                        <p class="PP2"><input type="text" value=""  id="TotalGains" readonly="readonly"/></p>
+                    </li>
+                    <!--<li class="TT3"><input type="button" /></li>-->
+                    <li class="TT3">
+                        <input type="button"  id="withdrawclick"  />
+                    </li>
+                </ul>
+
+                <ul class="UsrEth tablist" style=" display:none;">
+                    <li class="TT1"><img src="images/User.png"/></li>
+                    <li class="TT2">
+                        <p class="PP1">大獎</p>
+                        <p class="PP2"><input type="text" value=""  id = "ActivePot"   readonly="readonly"/></p>
+                    </li>
+                    <li class="TT2">
+                        <p class="PP1">當輪累計投入</p>
+                        <p class="PP2"><input type="text" value=""  id ="RoundCumulativeInput"   readonly="readonly"/></p>
+                    </li>
+                    <li class="TT2">
+                        <p class="PP1">當輪累計收益</p>
+                        <p class="PP2"><input type="text" value=""    id ="RoundCumulativeEarnings"   readonly="readonly"/></p>
+                    </li>
+                    <li class="TT2">
+                        <p class="PP1">當輪收益 %</p>
+                        <p class="PP2"><input type="text" value=""  id="RoundEarning" readonly="readonly"/></p>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="Rights">
+            <ul class="Tab">
+                <li class="Select">當輪</li>
+                <li>上壹輪</li>
+            </ul>
+            <div class="TabCon">
+                <div class="tablist">
+                    <div class="ReICO"><img src="images/Load.png"/></div>
+                    <ul class="List2">
+                        <li class="TT1">
+                            <p class="PP1">階段</p>
+                            <p class="PP2">時長</p>
+                            <p class="PP3">階段總投入</p>
+                            <p class="PP4">階段回報率</p>
+                        </li>
+                    </ul>
+                    <ul class="List"  id="CurrentListId">
+
+                    </ul>
+                </div>
+                <div class="tablist" style="display:none;">
+                    <div class="ReICO"><img src="images/zhuan.png"/></div>
+                    <ul class="List2">
+                        <li class="TT1">
+                            <p class="PP1">階段</p>
+                            <p class="PP2">時長</p>
+                            <p class="PP3">階段總投入</p>
+                            <p class="PP4">階段回報率</p>
+                        </li>
+                    </ul>
+                    <ul class="List"     id="PreviousRoundListId">
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="javascripts/boudle-r=2we4Re.js"></script>
+
+<script type="text/javascript">
+var endtime = 1536119625000;
+var totalEth = 115.6518 ;
+var currentTotal = 0 ;
+var currentLoop =  2 ||0 ;
+var currentStep =  16 || 0;
+
+try{
+    var _hmt = _hmt || [];(function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?89d97f9e1bbd99b6332836c6972cb770";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);})();
+}catch (e) {
+}
+</script>
+<script src="javascripts/infinity-r=2we4Re.js"></script>
+</body>
+</html>
+
