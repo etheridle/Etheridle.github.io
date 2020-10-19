@@ -2,7 +2,7 @@
 <v-app>
     <header class="container-fluid container-lg">
         <div class="row">
-            <div class="col-md-2 col-lg-2">
+            <div class="col-md-3 col-lg-3">
                 <v-app-bar-nav-icon style="position=relative" class="hidden-md-and-up" large @click.stop="drawer = !drawer" dark></v-app-bar-nav-icon>
                 <a href="/" class="logo" data-aos="fade-down" data-aos-delay="600">
                     <img src="./assets/images/DefiStakingPlatform_logo_transparent-v3.png" alt="DSP Logo" />
@@ -10,7 +10,7 @@
 
             </div>
 
-            <div class="col-md-10 col-lg-10">
+            <div class="col-md-9 col-lg-9">
 
                 <ul class="menu">
                     <li>
@@ -72,7 +72,7 @@
                         <div class="social-wrapper">
                             <ul class="social-links gray">
                                 <li>
-                                    <a href="https://t.me/dsptokenchat" target="_blank">
+                                    <a href="https://t.me/dsptoken" target="_blank">
                                         <i class="fab fa-telegram-plane"></i>
                                     </a>
                                 </li>
