@@ -35,7 +35,7 @@
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "trongrid": "^1.2.6",
-    "tronweb": "^3.0.0",
+    "tronweb": "^3.1.0",
     "vue": "^2.6.11",
     "vue-aos": "^1.1.0",
     "vue-chartkick": "^0.6.1",
