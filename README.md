@@ -1,4 +1,4 @@
-# d2x-app
+# GXY-app
 
 ## Project setup
 ```
