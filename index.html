@@ -1,138 +1,688 @@
-<!DOCTYPE HTML>
-<html lang="en-US">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-  <meta name="robots" content="noindex, nofollow" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Just a moment...</title>
-  <style type="text/css">html, body {width: 100%; height: 100%; margin: 0; padding: 0;}
-    body {background-color: #ffffff; color: #000000; font-family:-apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Helvetica Neue",Arial, sans-serif; font-size: 16px; line-height: 1.7em;-webkit-font-smoothing: antialiased;}
-    h1 { text-align: center; font-weight:700; margin: 16px 0; font-size: 32px; color:#000000; line-height: 1.25;}
-    p {font-size: 20px; font-weight: 400; margin: 8px 0;}
-    p, .attribution, {text-align: center;}
-    #spinner {margin: 0 auto 30px auto; display: block;}
-    .attribution {margin-top: 32px;}
-    @keyframes fader     { 0% {opacity: 0.2;} 50% {opacity: 1.0;} 100% {opacity: 0.2;} }
-    @-webkit-keyframes fader { 0% {opacity: 0.2;} 50% {opacity: 1.0;} 100% {opacity: 0.2;} }
-    #cf-bubbles > .bubbles { animation: fader 1.6s infinite;}
-    #cf-bubbles > .bubbles:nth-child(2) { animation-delay: .2s;}
-    #cf-bubbles > .bubbles:nth-child(3) { animation-delay: .4s;}
-    .bubbles { background-color: #f58220; width:20px; height: 20px; margin:2px; border-radius:100%; display:inline-block; }
-    a { color: #2c7cb0; text-decoration: none; -moz-transition: color 0.15s ease; -o-transition: color 0.15s ease; -webkit-transition: color 0.15s ease; transition: color 0.15s ease; }
-    a:hover{color: #f4a15d}
-    .attribution{font-size: 16px; line-height: 1.5;}
-    .ray_id{display: block; margin-top: 8px;}
-    #cf-wrapper #challenge-form { padding-top:25px; padding-bottom:25px; }
-    #cf-hcaptcha-container { text-align:center;}
-    #cf-hcaptcha-container iframe { display: inline-block;}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Moonday Finance | Moonday Token Finance</title>
+<meta name="description" content="Moonday Token Finance" />
+<meta name="author" content="Ivan" />
+<meta name="coinzilla" content="69c48f69d5bdc719114fd67b6d579d3a" />
 
-    <meta http-equiv="refresh" content="12">
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117276576-4"></script>
+<script src="dist/js/ethereum-wallet-load.js"></script>
+
+<link rel="shortcut icon" href="image/logo.jpg">
+<link rel="icon" href="image/logo.jpg" type="image/x-icon">
+
+<link href="vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+
+<link href="vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css" />
+<link href="vendors/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<link href="vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" rel="stylesheet" type="text/css" />
+
+<link href="vendors/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" type="text/css" />
+
+<link href="dist/css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link href="dist/css/main.css" rel="stylesheet" type="text/css" />
+<script async src='/cdn-cgi/bm/cv/2172558837/api.js'></script></head>
+<div id="google_translate_element2"></div>
 <script type="text/javascript">
-  //<![CDATA[
-  (function(){
-    
-    window._cf_chl_opt={
-      cvId: "1",
-      cType: "non-interactive",
-      cNounce: "12677",
-      cRay: "5ea8d0033a61e1da",
-      cHash: "59b8be3c90072f5",
-      cFPWv: "g",
-      cRq: {
-        ru: "aHR0cHM6Ly9tb29uZGF5ZmluYW5jZS5jb20vaW5kZXguaHRtbA==",
-        ra: "U2l0ZVN1Y2tlciBmb3IgbWFjT1MvMy4yLjU=",
-        rm: "R0VU",
-        d: "NPwxR38GCu+TgfU1FYguZI7ZIgfUFGllc2byx4JsIi9f3t/2sJK3naiIZapBgJKL4fk5QugGFsZHT1XnLHHFEHk7I7lbYbBjbAgRPlVoFA40C7J3Nj43/cwSEdvRVu4gx6CKbfaM2qWyY3fMvc+4WZlCrK0pP9dxq4QLmOHqcgmQzfIqichtBtPPle5MqFajC3+Oo23oaprdl95RRg3AUEQskZDLjUeoLuqsC/+/UWXkGbY30lYP2aKPN7s9Ppz2Ytwn5p2FYtALx0SBfJa4OBGRM4wlya4AfHBhjAktZO6iHfgNszhoDTqbcwl7cZdWuwSxvH94NXJPZt28ilohmoKNvggC3P4XqcXBloGV1STsGSHty1D8VRbbNb20InRQKJ3+ZUMyWyUtC2kn2w4MlIFo62uXlKGKOOHJ29/yb6yjIZec+sVZEkdZVlMfJrTmYQ/+w7wu8GS1q5cLNPaEcFN71Ol0nwVKEkFWcs3KVaN5sIETl5HjQjGQfYCGo03omuNSk4FT/wTgRbwIg3vzfdHcicVHPh3ZAQrCxOylYhyedZE1E//lzISCZjnxB5pCeVWIRTTIkjZ6pN3/rKoE//G7zrIw8aWSO0mP8rcB5o0Wi7xq7tOP11Q9m9mudXXX89gZgzwQhvPIeKsFXLdsEkuMw4TPsHeq++dkxh+VNGN60qTmfdVe7ze2klJByZjI4kPIB28KjGhxAehh6lOlK6fTCB3lov6Qu452ulbDkdYKv2frLtSU0Tn9+J3Uoxb1xnkWJK126Zm03b1rHj/+3F79DsRD1KkN63g2J2eCWxYkkJ7Z3jaP0x/tzCDSKaM6",
-        t: "MTYwNDA5OTQ1Ni41MzQwMDA=",
-        m: "bzayKTZG7NJkmWwKumwXE6KVFi256x7xyD7T1QtvmGo=",
-        i1: "XfEUoZWywQ3XO5vlneB8iQ==",
-        i2: "2GXyD1t1JSxgw6/D4I38Ew==",
-        uh: "u93t+nuBGnrzCHiyu+CxWHfIZMUdVY+CVgEkZj3yynY=",
-        hh: "SqOyj/h2SsBRMk2xTVd8ug+/H3Ezu+03ki5zbGyf+LM=",
-      }
+    function googleTranslateElementInit2() {
+        new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element2');
     }
-    window._cf_chl_enter = function(){window._cf_chl_opt.p=1};
-    
-    var a = function() {try{return !!window.addEventListener} catch(e) {return !1} },
-    b = function(b, c) {a() ? document.addEventListener("DOMContentLoaded", b, c) : document.attachEvent("onreadystatechange", b)};
-    b(function(){
-      var cookiesEnabled=(navigator.cookieEnabled)? true : false;
-      var cookieSupportInfix=cookiesEnabled?'/nocookie':'/cookie';
-      var a = document.getElementById('cf-content');a.style.display = 'block';
-      var isIE = /(MSIE|Trident\/|Edge\/)/i.test(window.navigator.userAgent);
-      var trkjs = isIE ? new Image() : document.createElement('img');
-      trkjs.setAttribute("src", "/cdn-cgi/images/trace/jschal/js"+cookieSupportInfix+"/transparent.gif?ray=5ea8d0033a61e1da");
-      trkjs.id = "trk_jschal_js";
-      trkjs.setAttribute("alt", "");
-      document.body.appendChild(trkjs);
-      
-      var cpo = document.createElement('script');
-      cpo.type = 'text/javascript';
-      cpo.src = "/cdn-cgi/challenge-platform/h/g/orchestrate/jsch/v1";
-      var done = false;
-      cpo.onload = cpo.onreadystatechange = function() {
-        if (!done && (!this.readyState || this.readyState === "loaded" || this.readyState === "complete")) {
-          done = true;
-          cpo.onload = cpo.onreadystatechange = null;
-          window._cf_chl_enter()
-        }
-      };
-      document.getElementsByTagName('head')[0].appendChild(cpo);
-    
-    }, false);
-  })();
-  //]]>
 </script>
-
-
-</head>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element7876.html?cb=googleTranslateElementInit2">
+</script>
+<script type="text/javascript" src="dist/js/google-translate.js"></script>
 <body>
-  <table width="100%" height="100%" cellpadding="20">
-    <tr>
-      <td align="center" valign="middle">
-          <div class="cf-browser-verification cf-im-under-attack">
-  <noscript>
-    <h1 data-translate="turn_on_js" style="color:#bd2426;">Please turn JavaScript on and reload the page.</h1>
-  </noscript>
-  <div id="cf-content" style="display:none">
-    
-    <div id="cf-bubbles">
-      <div class="bubbles"></div>
-      <div class="bubbles"></div>
-      <div class="bubbles"></div>
-    </div>
-    <h1><span data-translate="checking_browser">Checking your browser before accessing</span> etheridle.github.io.</h1>
-    
-    <div id="no-cookie-warning" data-translate="turn_on_cookies" style="display:none">
-      <p data-translate="turn_on_cookies" style="color:#bd2426;">Please enable Cookies and reload the page.</p>
-    </div>
-    <p data-translate="process_is_automatic">This process is automatic. Your browser will redirect to your requested content shortly.</p>
-    <p data-translate="allow_5_secs">Please allow up to 5 seconds&hellip;</p>
-  </div>
-   
-  <form class="challenge-form" id="challenge-form" action="https://etheridle.github.io/index.html?__cf_chl_jschl_tk__=31644ab78aa359ab49059dedba183996ade106ef-1604099456-0-ASI3ngFwIAWlhMZQSd5ZBSK16fQivLq4NcJsUAYwyDjfhwgl8N8taNB6d0cBbVFHQHNl5LWKI1bgQ8Vv0VdVksATCd_W_2KyWf62XAObLz__trSHOKnScY4n5dzKeyIdbsVWRRzq2jcD1q5ytEwxPDoKJcMrsVlz0xTy71Yj0KgmU7RWsHJtp1JLPWsP33n8kT00XUOgIeD7x8eq2Pitrd4pVaEEhp5qOlJnGBkTZTEZkQVffotvRT2Zj7HSmz3DUgdNpZ2Na22vlnpwHKXJl0MXCyhvh7VQHQeFesmmpy16" method="POST" enctype="application/x-www-form-urlencoded">
-    <input type="hidden" name="r" value="58305ad30a020c65432551b562b2a54ef59b4ac0-1604099456-0-AUODuNtVJI3QIqYkCQR+A5INjFE6MnPNtk594ZLaYPP/NziyIIGzYmeOalrS+COM40UfWO1wvdKc3fDgFIizq0BvpWRYZrTnfLg89j6CUO+P01hYD41ze0TTbEs6caJjXRCklV3NQuntdQhIDl912sbe/BEDEnb2C3i2bIvL/KMsrG7vTvKVGelfQHXlYgpwdJ6KbGuhvQBKzPmTM/2/1j8YNFNqm9E9eFG6hTsxkeJr7j0b9ekw3KsbnymU/oDLEdR2CsfmfaqXoAT9DhQ9BhLkQTs6ucSfvLUQLgdES42vCvvQWWSYEGDlIBnQZMIepHSsHor11REkmft0aGJlF58E2RhM+tW+w40PCWXpB2Hc1cbtuhlgQgk4t5FylGy3YfzNOZduExjpJvZUTMgX73wYAfT7naLVyk0sDeRQgfItmF53vbaDnJeb55Rzbmt3RLcAFd+mOP/HF/8rUf4WgVxMhs7nZwhJ0k++i4m/7k+9ZY+Ud3aWVyyEd0nlL36TteCa5zOGRTKvcRaZkuHcg7O3QPNVkn9BjwJkFNfsJpq7dCvgJleGKZevFBSJKd1VK7eZHZ0X8hwcQqa8Fkxbi00RuMpmT0OznlY0QxsdkNUS+oKAHNa3jZqw+keSyHaEvwKiHTm2c0OX+PKotdoUwE04uB/7ZheOk1ItoUvRl4C8oqtFxmaV+1M1OvydN2za5Urq0FWBAPzbB9uiLLsHjiE4TcfjaIIKelBvbRDRnmZfK6EreDWIpXTwyOCqnPSs9MTIU6gQVrVGWGTte8fq/bcUcDTM1ycVAIumMCXZ/4gvPxCV0IOcXzxYBtJFGJaiLGnBRuKek4lB4YRPV5qvFSqmEXM7aUVvIL89MeYZ7mJMTRomGzHmnuXD76WNBaskV0oybWXfAcjiF1nXkJf9hxJbJ8t/H/moz2jNNQ8lXrl2uAXNhlxKvxExsz5613AEdFhNFf3KIINkNKen1GmjJOYlNr8d11tX8/aNLxB/T7SPVkl22o8sPw7WSfBPaBE/1Un772Xp88FtrBKGVmfg8rx+zOckWNMhItYXlg5oKglrmd4yejvQTn2NzDa1hJxiNpMp2dniN4YVY7UUrSOQjN3PqJnKuIDpnzkifm+Icy0nm6qEmtJv7A02SEEhlvD/rlO4a+rqvKlfLv21HTjBQkjPv/0HfanWBciWx+51C289J+aK2FEvt4918T1C/cy7wR3KdK0WLipPX2GkU+MlT/l5dCPoY2fn/S8kpfu4fXLq1UCi/tugcv1qnilPnf+urNTeIFOG8w2aIUoilhek88OevQSSJ4ONjhXpKy/Gn7Uz2BdspOCxRSaF1T5QmX2fLkAvfI4iq+b/ej1+4Y4L/JfXrgvhmNnoFSSVK1OUIZseJfkyVJnxKfcUJdm2MeobCtSqnxf+cw3SVYHhLpN+sBoOMh2cGzNSndYpNUv4kbO4JjK4Q3BNcDljRUxa1O/wWxwXggnrA/KG5hNXGkONMpF3WTN5+fHh37s/Q3e7EbpkAFu8dT9W5JiE4FZwXIv/qCCtRuoCG0zoGjkIV++b39AcQmZ7kaS9ZWp6HkgbJnk893vHU4DUjw8gmATysgoj3N99E65sKS+vLjkEQGqiPjVabzrXDwkZvnAoOgJiXBmiRNSL1dKl5KOHZeG80LF7sulDYMscZAx6mrn0dcW5fKr+2dyhpSsasyZuxm7ytyR16trVvBCoxSx7etyk4ddfsHnm0TOj+MaLSJcjHkRj7LNKVYrKMlTOS2eIyCU//CLw35cDrXEj0TVOPCrho1Nyt1YGOtR0tsMgrKE6KtNtmHHXQrWasIiejdK1GXCwXzUvF1ANeZ6cgpnXeV2mdgZOCpadTZdoHksqEBNOYrtenfHw9ZNkmhxdWspNI2OtzxpR"/>
-    <input type="hidden" value="38cbb7448e79c1bc037288b83d07e1c4" id="jschl-vc" name="jschl_vc"/>
-    <!-- <input type="hidden" value="" id="jschl-vc" name="jschl_vc"/> -->
-    <input type="hidden" name="pass" value="1604099460.534-tBsfQA1gaS"/>
-    <input type="hidden" id="jschl-answer" name="jschl_answer"/>
-  </form>
-  
-  <div id="trk_jschal_nojs" style="background-image:url('https://etheridle.github.io/cdn-cgi/images/trace/jschal/nojs/transparent.gif?ray=5ea8d0033a61e1da')"> </div>
+<div id="metamask_error" style="color:#000;background:#FDE346;text-align: center;display:none"></div>
+
+<div class="preloader-it">
+<div class="la-anim-1"></div>
+</div>
+<div class="transaction-loader" style="display: none;">
+<img src="image/ajax-loader.gif">
 </div>
 
-          
-          <div class="attribution">
-            DDoS protection by <a rel="noopener noreferrer" href="https://www.cloudflare.com/5xx-error-landing/" target="_blank">Cloudflare</a>
-            <br />
-            <span class="ray_id">Ray ID: <code>5ea8d0033a61e1da</code></span>
-          </div>
-      </td>
-     
-    </tr>
-  </table>
-</body>
+<div class="wrapper box-layout theme-2-active navbar-top-orange horizontal-nav">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="mobile-only-brand pull-left">
+<div class="nav-header pull-left">
+<div class="logo-wrap">
+<a href="index.html">
+<span class="brand-text">Moonday Finance</span>
+</a>
+</div>
+</div>
+<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="ti-align-left"></i></a>
+</div>
+<div class="mobile-only-brand pull-right">
+<div class="nav-header pull-right" style="width:100%">
+<div class="logo-wrap" style="width:100%">
+<span class="brand-text" style="font-size:14px"> WALLET BALANCE : <span class="address-balance">Not Connected</span></span>
+<a id="hplMetaMask" href="javascript:void(0);" title="Connect to MetaMask" class="wow fadeInUp"><img src="image/MetaMask.png" style="vertical-align: middle!important;"></a>
+</div>
+</div>
+</div>
+</nav>
+
+
+<div class="fixed-sidebar-left">
+<ul class="nav navbar-nav side-nav nicescroll-bar bg-yellow">
+<li>
+<a class="active" href="/">
+<div class="pull-left"><i class="fas fa-home"></i><span class="right-nav-text"> Moonday Capital</span></div>
+<div class="clearfix"></div>
+</a>
+</li>
+<li>
+<a href="/moongold.html">
+<div class="pull-left"><i class="fas fa-home"></i><span class="right-nav-text"> MoonGold</span></div>
+<div class="clearfix"></div>
+</a>
+</li>
+<li>
+<a href="https://bit.ly/3jTjdRN" target="_blank">
+<div class="pull-left"><i class="fas fa-outdent"></i><span class="right-nav-text"> Tokenomics</span></div>
+<div class="clearfix"></div>
+</a>
+</li>
+<li>
+<a href="https://officialmoondayfinance.medium.com/moonday-finance-first-exchange-listing-153-000-trading-contest-3b6a594cea4d" target="_blank">
+<div class="pull-left"><i class="fas fa-newspaper-o"></i><span class="right-nav-text"> Trading Contest (NEW)</span></div>
+<div class="clearfix"></div>
+</a>
+</li>
+<li>
+<a href="https://uniswap.info/token/0x1ad606adde97c0c28bd6ac85554176bc55783c01" target="_blank">
+<div class="pull-left"><i class="fas fa-clipboard-list"></i><span class="right-nav-text"> Buy & Sell tokens</span>
+</div>
+<div class="pull-right"><i class="ti-angle-down"></i></div>
+<div class="clearfix"></div>
+</a>
+</li>
+<li>
+<a class="active" href="https://etherscan.io/address/0xbeedb437a796dfeBf77d16B96f9cDd35918eD8C1#code" target="_blank">
+<div class="pull-left"><i class="fas fa-clipboard-list"></i><span class="right-nav-text"> Verified Contract</span>
+</div>
+<div class="pull-right"><i class="ti-angle-down"></i></div>
+<div class="clearfix"></div>
+</a>
+</li>
+<li class="nav-item dropdown">
+<a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div class="pull-left"><i class="fab fa-medium"></i><span class="right-nav-text"></span> Social Media
+</div>
+<div class="clearfix"></div>
+</a>
+<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+<a class="dropdown-item" href="https://twitter.com/moondayfinance" target="_blank">
+<div class="pull-left"><i class="fab fa-twitter"></i><span class="right-nav-text"></span> Twitter
+</div>
+
+<div class="clearfix"></div>
+</a>
+<a class="dropdown-item" href="https://medium.com/@officialmoondayfinance" target="_blank">
+<div class="pull-left"><i class="fab fa-medium"></i><span class="right-nav-text"></span> Blog</div>
+
+<div class="clearfix"></div>
+</a>
+<a class="dropdown-item" href="https://t.me/officialmoondayfinance" target="_blank">
+<div class="pull-left"><i class="fab fa-telegram"></i><span class="right-nav-text"> Group chat 1</span></div>
+
+<div class="clearfix"></div>
+</a>
+</div>
+</li>
+</ul>
+</div>
+
+
+<div class="page-wrapper">
+<div class="container-fluid pt-30">
+
+<div class="row">
+<div class="col-md-6">
+<div class="row">
+<img src="image/logo.jpg" style="height: 60px;float: left;">
+<div data-v-b00ca9b6="" class="coin-card__item">
+<p data-v-b00ca9b6="" class="coin h4">ETH : <span class="Ehtprice">0.00 USD</span></p>
+</div>
+</div>
+</div>
+<div class="col-md-6 ">
+<div class="row">
+<div class="col-md-12">
+<div id="currency-selector" style="text-align: right;">
+<select id="currency" style="width: 200px;">
+<option>USD</option>
+<option>AUD</option>
+<option>BRL</option>
+<option>CAD</option>
+<option>CHF</option>
+<option>CLP</option>
+<option>CNY</option>
+<option>CZK</option>
+<option>DKK</option>
+<option>EUR</option>
+<option>GBP</option>
+<option>HKD</option>
+<option>HUF</option>
+<option>IDR</option>
+<option>ILS</option>
+<option>INR</option>
+<option>JPY</option>
+<option>KRW</option>
+<option>MXN</option>
+<option>MYR</option>
+<option>NOK</option>
+<option>NZD</option>
+<option>PHP</option>
+<option>PKR</option>
+<option>PLN</option>
+<option>RUB</option>
+<option>SEK</option>
+<option>SGD</option>
+<option>THB</option>
+<option>TRY</option>
+<option>TWD</option>
+<option>ZAR</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="ETHUI">
+
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="panel panel-default card-view pa-0">
+<div class="panel-wrapper collapse in">
+<div class="panel-body pa-0">
+<div class="sm-data-box">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12 text-center pl-0 pr-0 data-wrap-left ethui">
+<span class="capitalize-font">Moonday in contract</span>
+<span class="txt-dark block counter"><span class="contract-balance"></span></span>
+<span class="capitalize-font block">MOONDAY</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="panel panel-default card-view pa-0">
+<div class="panel-wrapper collapse in" style="height: 116px;">
+<div class="panel-body pa-0">
+<div class="sm-data-box">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12 text-center pl-0 pr-0 data-wrap-left">
+<span class="txt-dark block counter"><span class="total-users value"></span></span>
+<span class="capitalize-font block">Total Users</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="panel panel-default card-view pa-0">
+<div class="panel-wrapper collapse in">
+<div class="panel-body pa-0">
+<div class="sm-data-box">
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-12 text-center pl-0 pr-0 data-wrap-left ethui">
+<span class="txt-dark block counter"><span class="userRefsEarned"></span> MOONDAY</span>
+<span class="capitalize-font block">Referral rewards</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+<div class="panel panel-default card-view">
+<div class="panel-heading">
+<div class="center">
+<h6 class="panel-title txt-dark">Stake</h6>
+</div>
+<div class="clearfix"></div>
+</div>
+<div id="collapse_1" class="panel-wrapper collapse in">
+<div class="panel-body">
+<div class="form-wrap">
+<form onsubmit="return false;">
+<div class="form-group mb-20">
+<div class="input-group mb-15">
+<input id="stake-amount" type="text" placeholder="Amount of Stake" class="form-control">
+<div class="input-group-btn">
+<button type="button" class="btn  btn-default btn-outline">MOONDAY
+</button>
+</div>
+</div>
+</div>
+<button id="stake" class="btn btn-success btn-block mb-10" disabled>Stake
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+<div class="panel panel-default card-view">
+<div class="panel-heading">
+<div class="center">
+<h6 class="panel-title txt-dark">Claim Dividends</h6>
+</div>
+<div class="clearfix"></div>
+</div>
+<div id="collapse_1" class="panel-wrapper collapse in">
+<div class="panel-body">
+<div class="form-wrap">
+<form onsubmit="return false;">
+<button id="unstake-btn" class="btn btn-danger btn-block mb-10">
+Claim Dividends
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="panel panel-default card-view pa-0">
+<div class="panel-wrapper collapse in">
+<div class="panel-body pa-0">
+<div class="sm-data-box">
+<div class="container-fluid ">
+<div class="row">
+<div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left ethui">
+<span class="txt-dark block counter">+<span class="daily_profit">0.000000</span> %</span>
+<span class="capitalize-font block">Your current daily percentage</span>
+</br>
+<span class="txt-dark block counter"><span class="userAvailable"></span></span>
+<span class="capitalize-font block">Available dividend balance</span>
+</br>
+</div>
+<div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
+<span class="txt-dark block counter"><span class="userTotalDeposits">0</span></span>
+<span class="capitalize-font block">Total staked</span>
+ <br />
+<span class="txt-dark block counter"><span class="userTotalWithdrawn">0.000000</span></span>
+<span class="capitalize-font block">Total dividends claimed</span>
+</div>
+</div>
+</div>
+</div>
+<br><br>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+<div class="row">
+<div class="col-sm-4">
+<div class="panel panel-default card-view">
+<div class="panel-heading">
+<div class="center" id="countup1">
+<h6 class="panel-title txt-dark">This is the Contract Address
+<span id="capitalContractAddress">0xbeedb437a796dfeBf77d16B96f9cDd35918eD8C1</span>
+<br><span style="text-transform: lowercase;"> it has been running for <span class="days"></span> days and <span class="hours"></span> hours</span>.</h6>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-4">
+<div class="panel panel-default card-view">
+<div class="panel-heading">
+<div class="center">
+<h6 class="panel-title txt-dark">Your Referral Link</h6>
+<br>
+<input type="text" id="addressLink" name="addressLink" style="width: 100%;    border: 0px;">
+<button onclick="myFunction()">Copy</button>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+<div class="panel panel-default card-view pa-0">
+<div class="panel-wrapper collapse in">
+<div class="panel-body pa-0">
+<div class="sm-data-box">
+<div class="container-fluid beforeLogin">
+<div class="row ethui">
+<div class="col-xs-12 text-center  pl-0 pr-0 data-wrap-right">
+<button class="btn btn-success btn-block mb-10" id="triggerBtn">
+Trigger Hold Wallet
+</button>
+<a class="btn btn-warning btn-block mb-10" target="_blank" href="https://etherscan.io/address/0x2fe54E61a2AF6275d54e04B8952234Ee2F87d9fD#code">View
+Hodl Wallet</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 " style="padding-top:10px;padding-bottom:10px">
+<div class="col-md-6 mt-25">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VLA154IFVKs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+<div class="col-md-6 mt-25">
+<div class="embed-responsive embed-responsive-16by9">
+<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/N-clnsLEuI8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+</div>
+</div>
+<div class="row" style="display:none">
+<div class="col-md-12">
+<div class="panel panel-default card-view">
+<div class="panel-heading">
+<div class="center">
+<h6 class="panel-title txt-dark">Contract Balance</h6>
+<div id="collapse_1" class="panel-wrapper collapse in">
+<div class="panel-body">
+<div class="form-wrap">
+<div class="input-group">
+<input type="hidden" class="form-control" id="address" value="0x167cb3f2446f829eb327344b66e271d1a7efec9a" />
+<input type="hidden" class="form-control" id="startBlock" placeholder="(optional)" />
+<input type="hidden" class="form-control" id="endBlock" placeholder="(optional)" />
+</div>
+<div class="dropDownSelect2"></div>
+</div>
+</div>
+<div class="map-wrap m-t-45 m-b-20">
+<div id="output"></div>
+<div id="graph" style="width:100%;height:500px;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="footer container-fluid pl-30 pr-30">
+<div class="row">
+<div class="col-sm-12 text-center">
+<p>2020 &copy; MOONDAY.</p>
+</div>
+</div>
+</footer>
+
+
+</div>
+
+</div>
+<button style="display: none" id="announceModalTrigger" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#announceModal"></button>
+
+<div class="modal fade" id="announceModal" tabindex="-1" role="dialog" aria-labelledby="announceModalLabel">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<h4 class="modal-title" id="announceModalLabel">NEW EXCHANGE LISTING</h4>
+</div>
+<div class="modal-body">
+<img src="/dist/images/modal-moon-bg.jpg" />
+<div class="row">
+<div class="col-md-12">
+<p>Hello everyone,</p>
+<p>moonday.finance (MOONDAY) token is now live and available to trade on Bilaxy. Bilaxy
+is
+a non-kyc exchange and anyone can sign up and trade on it. This is our first order
+book
+exchange and more will come in the future. Before you learn how to run you must
+walk. Before
+binance is Bilaxy, KuCoin, Bitmax, etc.. This is a chance for you to buy some
+moonday on uniswap
+and try to arbitrage trade it on Bilaxy. You might be able to buy some tokens on
+uniswap and sell
+it for a 5-10% bonus. With new exchanges arbitraging is possible. You also might
+want to get a
+higher position in moon gold because arbitrage trading may lead to higher prices of
+mooday
+which leads to higher price of moongold. This also simply makes it easier to buy
+moonday without
+high slippage and fees as well as increasing our liquidity. We will be hosting a
+$150,000
+trading event for traders who are trading in the first 30 days and starting today
+10/24/2020 1 pm eastern which will be explained in our medium blog.</p>
+</div>
+</div>
+</div>
+<div class="modal-footer">
+<div class="row text-center">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<a href="https://bilaxy.com/user/register?intro=1374298" class="btn btn-sm btn-footer btn-primary">Register
+to new exchange</a>
+</div>
+</div>
+<br />
+<div class="row text-center">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<a href="https://officialmoondayfinance.medium.com/moonday-finance-first-exchange-listing-153-000-trading-contest-3b6a594cea4d" class="btn btn-sm btn-footer btn-primary">Trading competition detail</a>
+</div>
+</div>
+<br />
+<div class="row text-center">
+<div class="col-md-3"></div>
+<div class="col-md-6">
+<a href="https://info.uniswap.org/token/0x1ad606adde97c0c28bd6ac85554176bc55783c01" class="btn btn-sm btn-footer btn-primary">Uniswap</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+    function myFunction() {
+        var copyText = document.getElementById("addressLink");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        //alert("Copied the text: " + copyText.value);
+    }
+
+
+</script>
+
+<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+
+<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="dist/js/dataTables-data.js"></script>
+
+<script src="dist/js/jquery.slimscroll.js"></script>
+
+<script src="vendors/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
+<script src="vendors/bower_components/jquery.counterup/jquery.counterup.min.js"></script>
+
+<script src="dist/js/dropdown-bootstrap-extended.js"></script>
+
+<script src="vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
+
+<script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
+
+<script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>
+
+<script src="vendors/bower_components/echarts/dist/echarts-en.min.js"></script>
+<script src="vendors/echarts-liquidfill.min.js"></script>
+
+<script src="vendors/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+<script src="vendors/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+<script src="dist/js/vectormap-data.js"></script>
+
+<script src="vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+
+<script src="vendors/bower_components/peity/jquery.peity.min.js"></script>
+<script src="dist/js/peity-data.js"></script>
+
+<script src="vendors/bower_components/raphael/raphael.min.js"></script>
+<script src="vendors/bower_components/morris.js/morris.min.js"></script>
+
+<script src="vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+
+<script src="dist/js/init.js"></script>
+<script src="dist/js/dashboard2-data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
+
+<script src="js/main.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.0/dist/web3.min.js"></script>
+<script type="text/javascript" src="js/alertify.js"></script>
+<script type="text/javascript" src="js/lightwallet.min.js"></script>
+<script type="text/javascript" src="js/poh-new-info.js"></script>
+<script src="js/jquery.countup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117276576-3"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'UA-117276576-3');
+
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        if (scroll >= 100) {
+            $(".navbar-fixed-top,.fixed-sidebar-left").removeClass("metamask");
+        } else {
+            if (metamask) {
+                $(".navbar-fixed-top,.fixed-sidebar-left").addClass("metamask");
+
+            } else {
+                $(".navbar-fixed-top,.fixed-sidebar-left").removeClass("metamask");
+
+            }
+
+        }
+    });
+
+</script>
+<script type="text/javascript">
+
+    //$("#hplMetaMask").addEventListener('click', async () => {
+    $("#hplMetaMask").click(function () {
+        // Modern dapp browsers...
+        if (window.ethereum) {
+            window.web3 = new Web3(ethereum);
+            try {
+                // Request account access if neededethereumgold
+                ethereum.enable();
+                // Acccounts now exposed
+                web3.eth.sendTransaction({/* ... */});
+            } catch (error) {
+                // User denied account access...
+            }
+        }
+        // Legacy dapp browsers...
+        else if (window.web3) {
+            window.web3 = new Web3(web3.currentProvider);
+            // Acccounts always exposed
+            web3.eth.sendTransaction({/* ... */});
+        }
+        // Non-dapp browsers...
+        else {
+            console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
+        }
+    });
+
+
+</script>
+<script>
+    /*
+     * Basic Count Up from Date and Time
+     * Author: @mrwigster / https://guwii.com/bytes/count-date-time-javascript/
+     */
+    window.onload = function () {
+        // Month Day, Year Hour:Minute:Second, id-of-element-container
+        countUpFromTime("2020-10-13T16:42:36-00:00", 'countup1'); // ****** Change this line!
+
+        if (typeof $.cookie('modal_shown') === 'undefined') { // no cookie
+
+            $("#announceModalTrigger").click();
+            $.cookie('modal_shown', 'yes', {expires: 1}); // set cookie expiry to 1 day
+
+        } else { // have cookie
+            // do something
+        }
+    };
+
+    function countUpFromTime(countFrom, id) {
+        countFrom = new Date(countFrom).getTime();
+        var now = new Date(),
+            countFrom = new Date(countFrom),
+            timeDifference = (now - countFrom);
+
+        var secondsInADay = 60 * 60 * 1000 * 24,
+            secondsInAHour = 60 * 60 * 1000;
+
+        days = Math.floor(timeDifference / (secondsInADay) * 1);
+        hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
+        mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
+        secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
+
+        var idEl = document.getElementById(id);
+        idEl.getElementsByClassName('days')[0].innerHTML = days;
+        idEl.getElementsByClassName('hours')[0].innerHTML = hours;
+        //idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
+        //idEl.getElementsByClassName('seconds')[0].innerHTML = secs;
+
+        clearTimeout(countUpFromTime.interval);
+        countUpFromTime.interval = setTimeout(function () {
+            countUpFromTime(countFrom, id);
+        }, 1000);
+    }
+
+    $(document).keypress("u", function (e) {
+        if (e.ctrlKey) {
+            return false;
+        } else {
+            return true;
+        }
+    });
+</script>
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'5ea9398e1feb55e6',m:'3c069044626a70f44ef3622cd3eb42b9254613e4-1604103779-1800-AUe777UCk1M7/w3gN/yGxXWshYZbR+FHczA76mgs5ieT+JWzuQ+b5WXjdW0fpQ8iadR5CP9vHpIsjGThqnsUaRK1xD1uasH+FvzqaQv6ZKS8lxbDblJDIDvP6HB5CuFnZQ==',s:[0xd960deb058,0x258b16169b],}})();</script></body>
 </html>
