@@ -1,688 +1,1301 @@
-<!DOCTYPE html>
+
+
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>Moonday Finance | Moonday Token Finance</title>
-<meta name="description" content="Moonday Token Finance" />
-<meta name="author" content="Ivan" />
-<meta name="coinzilla" content="69c48f69d5bdc719114fd67b6d579d3a" />
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117276576-4"></script>
-<script src="dist/js/ethereum-wallet-load.js"></script>
-
-<link rel="shortcut icon" href="image/logo.jpg">
-<link rel="icon" href="image/logo.jpg" type="image/x-icon">
-
-<link href="vendors/bower_components/datatables/media/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-
-<link href="vendors/bower_components/morris.js/morris.css" rel="stylesheet" type="text/css" />
-<link href="vendors/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-
-<link href="vendors/bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
-<link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css" rel="stylesheet" type="text/css" />
-
-<link href="vendors/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet" type="text/css" />
-
-<link href="dist/css/style.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<link href="dist/css/main.css" rel="stylesheet" type="text/css" />
-<script async src='/cdn-cgi/bm/cv/2172558837/api.js'></script></head>
-<div id="google_translate_element2"></div>
-<script type="text/javascript">
-    function googleTranslateElementInit2() {
-        new google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element2');
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Shark Defi</title>
+    <link rel="stylesheet" href="static/css/style%EF%B9%96v=65.css">
+    <link rel="stylesheet" href="static/css/libs%EF%B9%96v=65.css">
+    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+</head>
+<style>[v-cloak]{
+        display: none;
     }
-</script>
-<script type="text/javascript" src="https://translate.google.com/translate_a/element7876.html?cb=googleTranslateElementInit2">
-</script>
-<script type="text/javascript" src="dist/js/google-translate.js"></script>
+</style>
 <body>
-<div id="metamask_error" style="color:#000;background:#FDE346;text-align: center;display:none"></div>
+<div class="app" v-cloak="">
+    <main class="main">
+        <header class="header">
+            <div class="container">
+                <a href="" class="logo">
+                    <img src="static/img/svg/logo.svg" alt="">
+                </a>
+                <menu class="menu m-none">
+                    <div>
+                        <a href="https://justswap.org/?lang=en-US#/home?tokenAddress=TLWAwUn79CVehz91A4J9nbh6SPPvDdhba1&amp;type=swap" target="_blank">trade swd</a>
+                        <a target="_blank" href="static/whitepaper.pdf">whitepaper</a>
+                    </div>
+                    <ul class="soc">
+                        <li><a href="https://twitter.com/shark_tron" target="_blank">
+                            <img src="static/img/svg/main/tw_white.svg" alt="">
+                        </a></li>
+                        <li data-toggle="soc">
+                            <a href="#" target="_blank">
+                                <img src="static/img/svg/main/tl_white.svg" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="lang" class="lang">
+                                <img src="static/img/flags/en.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                    <button class="button blue" :data-toggle="user ? '' : 'login'"><img
+                            src="static/img/svg/main/user.svg" alt=""
+                            style="margin-left: 0; margin-right: 15px;">[user ? user_login : 'unlock wallet']
+                    </button>
+                </menu>
+                <button class="burger d-none" data-toggle="menu">
+                    <img src="static/img/svg/burger.svg" alt="">
+                </button>
+            </div>
+        </header>
 
-<div class="preloader-it">
-<div class="la-anim-1"></div>
-</div>
-<div class="transaction-loader" style="display: none;">
-<img src="image/ajax-loader.gif">
-</div>
+        
+    <div class="global_section defi">
 
-<div class="wrapper box-layout theme-2-active navbar-top-orange horizontal-nav">
+        <div class="container container__header">
+            <div class="total_staked m-none" v-if="total_staked.srx > 0">
+                <h2 class="text-right">total staked now</h2>
+                <h3 class="text-right">[parseFloat(882806+ total_staked.srx).Crop(2)] <span>SRX</span></h3>
+                <h3 class="text-right">[parseFloat(657076 + total_staked.trx - 128000000).Crop(2)] <span>TRX</span>
+                </h3>
+                <h3 class="text-right">[parseFloat(70635 +total_staked.tth).Crop(2)] <span>TTH</span></h3>
+            </div>
+            <div class="curses_d m-none"
+                 style="position: absolute; top : 23px; right: 15px;font-weight: 500;font-size: 14px;color: #8990f7;">
+                <span style="margin-right: 57px">1 SWD ~ [price_token_trx] TRX</span>
+                <span>1 SWD ~ [price_token] USDT</span>
+            </div>
+            <div class="b d-none">
+                <img src="static/img/png/2.gif" alt="">
+            </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
-<div class="mobile-only-brand pull-left">
-<div class="nav-header pull-left">
-<div class="logo-wrap">
-<a href="index.html">
-<span class="brand-text">Moonday Finance</span>
-</a>
-</div>
-</div>
-<a id="toggle_nav_btn" class="toggle-left-nav-btn inline-block ml-20 pull-left" href="javascript:void(0);"><i class="ti-align-left"></i></a>
-</div>
-<div class="mobile-only-brand pull-right">
-<div class="nav-header pull-right" style="width:100%">
-<div class="logo-wrap" style="width:100%">
-<span class="brand-text" style="font-size:14px"> WALLET BALANCE : <span class="address-balance">Not Connected</span></span>
-<a id="hplMetaMask" href="javascript:void(0);" title="Connect to MetaMask" class="wow fadeInUp"><img src="image/MetaMask.png" style="vertical-align: middle!important;"></a>
-</div>
-</div>
-</div>
-</nav>
+            <img class="d-none" src="static/img/png/1.gif" alt="">
+            <img class="animate1 m-none" src="static/img/png/1.gif" alt="">
 
+            <h2>sword token</h2>
+            <h3>mining has already started</h3>
+            <h4 class="d-none">1 swd =[price_token_trx] trx</h4>
+            <div class="progress">
+                <div class="b m-none">
+                    <img src="static/img/png/2.gif" alt="">
+                    <img src="static/img/png/3.gif" alt="">
+                </div>
+                <img src="static/img/svg/m.svg" alt="">
+                <div class="progress__title">level [currentLvl] / 15</div>
+                <div class="progress__progress">
+                    <div :style="{'width' : procentToken+'%'}"></div>
+                </div>
+                <div class="progress__left"><b>left:</b> [left.Crop(4)] SWD</div>
+                <button class="button purple" data-toggle="level"> details <img
+                        src="static/img/svg/arrow.svg"
+                        alt=""></button>
+            </div>
 
-<div class="fixed-sidebar-left">
-<ul class="nav navbar-nav side-nav nicescroll-bar bg-yellow">
-<li>
-<a class="active" href="/">
-<div class="pull-left"><i class="fas fa-home"></i><span class="right-nav-text"> Moonday Capital</span></div>
-<div class="clearfix"></div>
-</a>
-</li>
-<li>
-<a href="/moongold.html">
-<div class="pull-left"><i class="fas fa-home"></i><span class="right-nav-text"> MoonGold</span></div>
-<div class="clearfix"></div>
-</a>
-</li>
-<li>
-<a href="https://bit.ly/3jTjdRN" target="_blank">
-<div class="pull-left"><i class="fas fa-outdent"></i><span class="right-nav-text"> Tokenomics</span></div>
-<div class="clearfix"></div>
-</a>
-</li>
-<li>
-<a href="https://officialmoondayfinance.medium.com/moonday-finance-first-exchange-listing-153-000-trading-contest-3b6a594cea4d" target="_blank">
-<div class="pull-left"><i class="fas fa-newspaper-o"></i><span class="right-nav-text"> Trading Contest (NEW)</span></div>
-<div class="clearfix"></div>
-</a>
-</li>
-<li>
-<a href="https://uniswap.info/token/0x1ad606adde97c0c28bd6ac85554176bc55783c01" target="_blank">
-<div class="pull-left"><i class="fas fa-clipboard-list"></i><span class="right-nav-text"> Buy & Sell tokens</span>
-</div>
-<div class="pull-right"><i class="ti-angle-down"></i></div>
-<div class="clearfix"></div>
-</a>
-</li>
-<li>
-<a class="active" href="https://etherscan.io/address/0xbeedb437a796dfeBf77d16B96f9cDd35918eD8C1#code" target="_blank">
-<div class="pull-left"><i class="fas fa-clipboard-list"></i><span class="right-nav-text"> Verified Contract</span>
-</div>
-<div class="pull-right"><i class="ti-angle-down"></i></div>
-<div class="clearfix"></div>
-</a>
-</li>
-<li class="nav-item dropdown">
-<a class="dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<div class="pull-left"><i class="fab fa-medium"></i><span class="right-nav-text"></span> Social Media
-</div>
-<div class="clearfix"></div>
-</a>
-<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-<a class="dropdown-item" href="https://twitter.com/moondayfinance" target="_blank">
-<div class="pull-left"><i class="fab fa-twitter"></i><span class="right-nav-text"></span> Twitter
-</div>
+            <div class="total_staked d-none">
+                <h2>total staked now:</h2>
+                <h3>[parseFloat(882806+ total_staked.srx).Crop(2)] <span>SRX</span></h3>
+                <h3>[parseFloat(657076 + total_staked.trx - 128000000).Crop(2)] <span>TRX</span></h3>
+                <h3>[parseFloat(70635 +total_staked.tth).Crop(2)] <span>TTH</span></h3>
+            </div>
+        </div>
+        <div class="mining">
+            <div class="container">
+                <h2>SWORD token mining </h2>
+                <div class="mining-block">
+                    <div class="mining__list">
+                        <div class="mining__item mining__item--blue">
+                            <div class="mining__item-ava">
+                                <img src="static/img/svg/srx.svg" alt="">
+                            </div>
+                            <div class="mining__item-info">
+                                <button class="button blue-white" data-toggle="stake" @click="select_token = 'srx'"
+                                        v-if="active">
+                                    stake srx <img src="static/img/svg/arrow.svg" alt="">
+                                </button>
+                                <div>
+                                    <h2><b>your stake:</b></h2>
+                                    <h2>[user_stake.srx] SRX</h2>
+                                </div>
+                                <a href="" class="text-blue" @click.prevent="unfreeze('srx')">unstake</a>
+                            </div>
+                        </div>
+                        <div class="mining__item mining__item--green">
+                            <div class="mining__item-ava">
+                                <img src="static/img/svg/tth.svg" alt="">
+                            </div>
+                            <div class="mining__item-info">
+                                <button class="button green" data-toggle="stake" @click="select_token = 'tth'"
+                                        v-if="active">stake tth
+                                    <img src="static/img/svg/arrow.svg"
+                                         alt="">
+                                </button>
+                                <div>
+                                    <h2><b>your stake:</b></h2>
+                                    <h2>[user_stake.tth] TTH</h2>
+                                </div>
+                                <a href="" class="text-green" @click.prevent="unfreeze('tth')">unstake</a>
+                            </div>
+                        </div>
+                        <div class="mining__item mining__item--red">
+                            <div class="mining__item-ava">
+                                <img src="static/img/svg/trx.svg" alt="">
+                            </div>
+                            <div class="mining__item-info">
+                                <button class="button red" data-toggle="stake" @click="select_token = 'trx'"
+                                        v-if="active">stake trx
+                                    <img src="static/img/svg/arrow.svg"
+                                         alt="">
+                                </button>
+                                <div>
+                                    <h2><b>your stake:</b></h2>
+                                    <h2>[user_stake.trx] TRX</h2>
+                                </div>
+                                <a href="" class="text-red" @click.prevent="unfreeze">unstake</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel__right">
+                        <div class="panel__content">
+                            <h3>SWORD token balance </h3>
+                            <h2>[avaiable] <span>SWD</span></h2>
+                            <img src="static/img/png/m.png" alt="">
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td>Per hour</td>
+                                    <td>
+                                        [per_hour.Crop(4)] SWD
+                                        <span class="text-blue"> ~ [per_hour_price.Crop(4)] USD</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Per day</td>
+                                    <td>
+                                        [parseFloat(per_hour * 24).Crop(4)] SWD
+                                        <span class="text-blue">~ [parseFloat(per_hour_price * 24).Crop(4)] USD</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Per 10 days</td>
+                                    <td>
+                                        [parseFloat(per_hour * 24 * 10).Crop(4)] SWD
+                                        <span class="text-blue">~ [parseFloat(per_hour_price * 24 *10).Crop(4)] USD</span>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <button class="button blue" @click.prevent="getMyToken">
+                                withdraw tokens <img src="static/img/svg/arrow.svg" alt="">
+                            </button>
+                            <a href="#" data-toggle="withdraw" class="text-blue">Statistics</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h3 style="color: #1D1D3D;font-size: 30px; text-align: center; margin-bottom:40px;">income from your referrals</h3>
+            <div class="ref">
 
-<div class="clearfix"></div>
-</a>
-<a class="dropdown-item" href="https://medium.com/@officialmoondayfinance" target="_blank">
-<div class="pull-left"><i class="fab fa-medium"></i><span class="right-nav-text"></span> Blog</div>
+                <div class="ref__left"><h4>your referral link</h4> <input type="text" id="ref"
+                                                                                        :value="ref_link"
+                                                                                        readonly>
+                    <button class="button purple" @click.prevent="copy">copy link <img
+                            src="static/img/svg/arrow.svg" alt=""></button>
+                    <p>Using this referral link, you can invite new users and receive Sword tokens as rewards</p>
+                    <p class="text-uppercase fz14 fw500">
+                        THE REWARD IS 10 % OF THE SWORD token MINED BY YOUR REFERRALS</p></div>
+                <div class="ref__right">
+                    <div class="ref__right-content">
+                        <h4>available reward</h4>
+                        <h3>[referral_money] <span>SWD</span></h3>
+                        <button class="button purple d-none"
+                                @click.prevent="getReferralMoney">withdraw to the wallet
+                            <img src="static/img/svg/arrow.svg" alt="">
+                        </button>
+                        <button class="button blue m-none"
+                                @click.prevent="getReferralMoney">withdraw to the wallet
+                            <img src="static/img/svg/arrow.svg" alt="">
+                        </button>
+                    </div>
+                    <div class="ref__right-footer">
+                        <h4>total referrals: <b>[total_referral]</b></h4>
+                        <a href="#" data-toggle="referral">referral statistics</a>
+                    </div>
+                </div>
+            </div>
 
-<div class="clearfix"></div>
-</a>
-<a class="dropdown-item" href="https://t.me/officialmoondayfinance" target="_blank">
-<div class="pull-left"><i class="fab fa-telegram"></i><span class="right-nav-text"> Group chat 1</span></div>
+            <section class="coming m-none" style="background: transparent; margin-bottom: 0; padding-top: 0">
 
-<div class="clearfix"></div>
-</a>
-</div>
-</li>
-</ul>
-</div>
+                <h3 style="color: #1D1D3D;font-size: 30px; text-align: center; margin-bottom:40px;">SHARK TRON PLATFORM SERVICES</h3>
+                <ul>
+                    <li style="cursor: pointer" onclick="window.open('http://sharktron.com/')">
+                        <i><img style="margin-top: 13px; opacity: 1;z-index: 1"
+                                src="static/img/coming/1-1.png" alt=""></i>
+                        <b>shark tron</b>
+                        <span>available</span>
+                    </li>
+                    <li style="cursor: pointer" onclick="window.open('http://diceshark.com/')">
+                        <i><img style="margin-top: 43px; opacity: 1;z-index: 1"
+                                src="static/img/coming/1.png" alt=""></i>
+                        <b>shark dice</b>
+                        <span>available</span>
+                    </li>
+                     <li onclick="window.open('http://sharkinvest.io/')" style="cursor: pointer">
+                                <i><img style="margin-top: -5px; z-index: 1; opacity: 1;margin-left: -25px;" src="static/img/coming/si.svg" alt=""></i>
+                                <b>shark invest</b>
+                                <span>available</span>
+                            </li>
+                    <li>
+                        <i><img style="margin-top: 43px" src="static/img/coming/2.png" alt=""></i>
+                        <b>shark casino</b>
+                        <span>coming soon</span>
+                    </li>
+                    <li>
+                        <i><img style="margin-top: 23px" src="static/img/coming/3.png" alt=""></i>
+                        <b>shark Exchange</b>
+                        <span>coming soon</span>
+                    </li>
+                    <li>
+                        <i><img style="margin-top: 43px" src="static/img/coming/4.png" alt=""></i>
+                        <b>shark Bet</b>
+                        <span>coming soon</span>
+                    </li>
+                </ul>
 
+            </section>
 
-<div class="page-wrapper">
-<div class="container-fluid pt-30">
+        </div>
+    </div>
 
-<div class="row">
-<div class="col-md-6">
-<div class="row">
-<img src="image/logo.jpg" style="height: 60px;float: left;">
-<div data-v-b00ca9b6="" class="coin-card__item">
-<p data-v-b00ca9b6="" class="coin h4">ETH : <span class="Ehtprice">0.00 USD</span></p>
-</div>
-</div>
-</div>
-<div class="col-md-6 ">
-<div class="row">
-<div class="col-md-12">
-<div id="currency-selector" style="text-align: right;">
-<select id="currency" style="width: 200px;">
-<option>USD</option>
-<option>AUD</option>
-<option>BRL</option>
-<option>CAD</option>
-<option>CHF</option>
-<option>CLP</option>
-<option>CNY</option>
-<option>CZK</option>
-<option>DKK</option>
-<option>EUR</option>
-<option>GBP</option>
-<option>HKD</option>
-<option>HUF</option>
-<option>IDR</option>
-<option>ILS</option>
-<option>INR</option>
-<option>JPY</option>
-<option>KRW</option>
-<option>MXN</option>
-<option>MYR</option>
-<option>NOK</option>
-<option>NZD</option>
-<option>PHP</option>
-<option>PKR</option>
-<option>PLN</option>
-<option>RUB</option>
-<option>SEK</option>
-<option>SGD</option>
-<option>THB</option>
-<option>TRY</option>
-<option>TWD</option>
-<option>ZAR</option>
-</select>
-</div>
-</div>
-</div>
-</div>
-</div>
+    </main>
+    <footer>
+        <div class="container">
+            <a class="logo">
+                <img src="static/img/svg/logo.svg" alt="">
+            </a>
+            <ul>
+                <li><a href="https://justswap.org/?lang=en-US#/home?tokenAddress=TLWAwUn79CVehz91A4J9nbh6SPPvDdhba1&amp;type=swap" target="_blank">trade swd</a></li>
+                <li><a target="_blank" href="static/whitepaper.pdf">whitepaper</a></li>
+            </ul>
+            <div class="soc">
+                <li><a href="https://twitter.com/shark_tron" target="_blank" onclick="window.open('https://twitter.com/shark_tron')">
+                    <img src="static/img/svg/main/tw.svg" alt="">
+                </a>
+                </li>
+                <li><a data-toggle="soc"  href="#" target="_blank" >
+                    <img src="static/img/svg/main/tl.svg" alt="">
+                </a></li>
+                <li><a href="#" data-toggle="lang" class="lang">
+                    <img src="static/img/flags/en.png" alt="">
+                </a></li>
+            </div>
+            <a href="" class="copyright">Copyright © All rights reserved</a>
+        </div>
+    </footer>
 
+    
 
-<div class="ETHUI">
-
-<div class="row">
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-<div class="panel panel-default card-view pa-0">
-<div class="panel-wrapper collapse in">
-<div class="panel-body pa-0">
-<div class="sm-data-box">
-<div class="container-fluid">
-<div class="row">
-<div class="col-xs-12 text-center pl-0 pr-0 data-wrap-left ethui">
-<span class="capitalize-font">Moonday in contract</span>
-<span class="txt-dark block counter"><span class="contract-balance"></span></span>
-<span class="capitalize-font block">MOONDAY</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-<div class="panel panel-default card-view pa-0">
-<div class="panel-wrapper collapse in" style="height: 116px;">
-<div class="panel-body pa-0">
-<div class="sm-data-box">
-<div class="container-fluid">
-<div class="row">
-<div class="col-xs-12 text-center pl-0 pr-0 data-wrap-left">
-<span class="txt-dark block counter"><span class="total-users value"></span></span>
-<span class="capitalize-font block">Total Users</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-<div class="panel panel-default card-view pa-0">
-<div class="panel-wrapper collapse in">
-<div class="panel-body pa-0">
-<div class="sm-data-box">
-<div class="container-fluid">
-<div class="row">
-<div class="col-xs-12 text-center pl-0 pr-0 data-wrap-left ethui">
-<span class="txt-dark block counter"><span class="userRefsEarned"></span> MOONDAY</span>
-<span class="capitalize-font block">Referral rewards</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-<div class="panel panel-default card-view">
-<div class="panel-heading">
-<div class="center">
-<h6 class="panel-title txt-dark">Stake</h6>
-</div>
-<div class="clearfix"></div>
-</div>
-<div id="collapse_1" class="panel-wrapper collapse in">
-<div class="panel-body">
-<div class="form-wrap">
-<form onsubmit="return false;">
-<div class="form-group mb-20">
-<div class="input-group mb-15">
-<input id="stake-amount" type="text" placeholder="Amount of Stake" class="form-control">
-<div class="input-group-btn">
-<button type="button" class="btn  btn-default btn-outline">MOONDAY
-</button>
-</div>
-</div>
-</div>
-<button id="stake" class="btn btn-success btn-block mb-10" disabled>Stake
-</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-<div class="panel panel-default card-view">
-<div class="panel-heading">
-<div class="center">
-<h6 class="panel-title txt-dark">Claim Dividends</h6>
-</div>
-<div class="clearfix"></div>
-</div>
-<div id="collapse_1" class="panel-wrapper collapse in">
-<div class="panel-body">
-<div class="form-wrap">
-<form onsubmit="return false;">
-<button id="unstake-btn" class="btn btn-danger btn-block mb-10">
-Claim Dividends
-</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-<div class="panel panel-default card-view pa-0">
-<div class="panel-wrapper collapse in">
-<div class="panel-body pa-0">
-<div class="sm-data-box">
-<div class="container-fluid ">
-<div class="row">
-<div class="col-xs-6 text-center pl-0 pr-0 data-wrap-left ethui">
-<span class="txt-dark block counter">+<span class="daily_profit">0.000000</span> %</span>
-<span class="capitalize-font block">Your current daily percentage</span>
-</br>
-<span class="txt-dark block counter"><span class="userAvailable"></span></span>
-<span class="capitalize-font block">Available dividend balance</span>
-</br>
-</div>
-<div class="col-xs-6 text-center  pl-0 pr-0 data-wrap-right">
-<span class="txt-dark block counter"><span class="userTotalDeposits">0</span></span>
-<span class="capitalize-font block">Total staked</span>
- <br />
-<span class="txt-dark block counter"><span class="userTotalWithdrawn">0.000000</span></span>
-<span class="capitalize-font block">Total dividends claimed</span>
-</div>
-</div>
-</div>
-</div>
-<br><br>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-12">
-<div class="row">
-<div class="col-sm-4">
-<div class="panel panel-default card-view">
-<div class="panel-heading">
-<div class="center" id="countup1">
-<h6 class="panel-title txt-dark">This is the Contract Address
-<span id="capitalContractAddress">0xbeedb437a796dfeBf77d16B96f9cDd35918eD8C1</span>
-<br><span style="text-transform: lowercase;"> it has been running for <span class="days"></span> days and <span class="hours"></span> hours</span>.</h6>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-4">
-<div class="panel panel-default card-view">
-<div class="panel-heading">
-<div class="center">
-<h6 class="panel-title txt-dark">Your Referral Link</h6>
-<br>
-<input type="text" id="addressLink" name="addressLink" style="width: 100%;    border: 0px;">
-<button onclick="myFunction()">Copy</button>
-</div>
-</div>
-</div>
-</div>
-<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-<div class="panel panel-default card-view pa-0">
-<div class="panel-wrapper collapse in">
-<div class="panel-body pa-0">
-<div class="sm-data-box">
-<div class="container-fluid beforeLogin">
-<div class="row ethui">
-<div class="col-xs-12 text-center  pl-0 pr-0 data-wrap-right">
-<button class="btn btn-success btn-block mb-10" id="triggerBtn">
-Trigger Hold Wallet
-</button>
-<a class="btn btn-warning btn-block mb-10" target="_blank" href="https://etherscan.io/address/0x2fe54E61a2AF6275d54e04B8952234Ee2F87d9fD#code">View
-Hodl Wallet</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-md-12 " style="padding-top:10px;padding-bottom:10px">
-<div class="col-md-6 mt-25">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VLA154IFVKs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-</div>
-<div class="col-md-6 mt-25">
-<div class="embed-responsive embed-responsive-16by9">
-<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/N-clnsLEuI8" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-</div>
-</div>
-</div>
-</div>
-<div class="row" style="display:none">
-<div class="col-md-12">
-<div class="panel panel-default card-view">
-<div class="panel-heading">
-<div class="center">
-<h6 class="panel-title txt-dark">Contract Balance</h6>
-<div id="collapse_1" class="panel-wrapper collapse in">
-<div class="panel-body">
-<div class="form-wrap">
-<div class="input-group">
-<input type="hidden" class="form-control" id="address" value="0x167cb3f2446f829eb327344b66e271d1a7efec9a" />
-<input type="hidden" class="form-control" id="startBlock" placeholder="(optional)" />
-<input type="hidden" class="form-control" id="endBlock" placeholder="(optional)" />
-</div>
-<div class="dropDownSelect2"></div>
-</div>
-</div>
-<div class="map-wrap m-t-45 m-b-20">
-<div id="output"></div>
-<div id="graph" style="width:100%;height:500px;"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<footer class="footer container-fluid pl-30 pr-30">
-<div class="row">
-<div class="col-sm-12 text-center">
-<p>2020 &copy; MOONDAY.</p>
-</div>
-</div>
-</footer>
-
-
+<div class="modal" data-modal="withdraw">
+    <div class="modal__container" style="max-width: 500px">
+        <button class="close"><img src="static/img/svg/main/close.svg" alt=""></button>
+        <div class="modal-content">
+            <div class="container">
+                <h2>TOKEN WITHDRAWAL STATISTICS</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <td>token withdrawal amount</td>
+                        <td>date/time</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="w in withdraw">
+                        <td><b class="text-dark-blue">[parseFloat(w.amount/1000000).Crop(6)]</b> SWD</td>
+                        <td>[w.date]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
 
-</div>
-<button style="display: none" id="announceModalTrigger" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#announceModal"></button>
-
-<div class="modal fade" id="announceModal" tabindex="-1" role="dialog" aria-labelledby="announceModalLabel">
-<div class="modal-dialog" role="document">
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-<h4 class="modal-title" id="announceModalLabel">NEW EXCHANGE LISTING</h4>
-</div>
-<div class="modal-body">
-<img src="/dist/images/modal-moon-bg.jpg" />
-<div class="row">
-<div class="col-md-12">
-<p>Hello everyone,</p>
-<p>moonday.finance (MOONDAY) token is now live and available to trade on Bilaxy. Bilaxy
-is
-a non-kyc exchange and anyone can sign up and trade on it. This is our first order
-book
-exchange and more will come in the future. Before you learn how to run you must
-walk. Before
-binance is Bilaxy, KuCoin, Bitmax, etc.. This is a chance for you to buy some
-moonday on uniswap
-and try to arbitrage trade it on Bilaxy. You might be able to buy some tokens on
-uniswap and sell
-it for a 5-10% bonus. With new exchanges arbitraging is possible. You also might
-want to get a
-higher position in moon gold because arbitrage trading may lead to higher prices of
-mooday
-which leads to higher price of moongold. This also simply makes it easier to buy
-moonday without
-high slippage and fees as well as increasing our liquidity. We will be hosting a
-$150,000
-trading event for traders who are trading in the first 30 days and starting today
-10/24/2020 1 pm eastern which will be explained in our medium blog.</p>
-</div>
-</div>
-</div>
-<div class="modal-footer">
-<div class="row text-center">
-<div class="col-md-3"></div>
-<div class="col-md-6">
-<a href="https://bilaxy.com/user/register?intro=1374298" class="btn btn-sm btn-footer btn-primary">Register
-to new exchange</a>
-</div>
-</div>
-<br />
-<div class="row text-center">
-<div class="col-md-3"></div>
-<div class="col-md-6">
-<a href="https://officialmoondayfinance.medium.com/moonday-finance-first-exchange-listing-153-000-trading-contest-3b6a594cea4d" class="btn btn-sm btn-footer btn-primary">Trading competition detail</a>
-</div>
-</div>
-<br />
-<div class="row text-center">
-<div class="col-md-3"></div>
-<div class="col-md-6">
-<a href="https://info.uniswap.org/token/0x1ad606adde97c0c28bd6ac85554176bc55783c01" class="btn btn-sm btn-footer btn-primary">Uniswap</a>
-</div>
-</div>
-</div>
-</div>
-</div>
+<div class="modal" data-modal="login">
+    <div class="modal__container" style="max-width: 500px">
+        <button class="close"><img src="static/img/svg/main/close.svg" alt=""></button>
+        <div class="modal-content">
+            <div class="container modal-login">
+                <h2>AUTHORIZATION</h2>
+                <p>Please sign in to your TRON wallet. If you haven’t downloaded the Install TronLink browser extension
+                    or the TronWallet application for your smartphone by clicking on the button below if you didn't this
+                    yet.</p>
+                <p><b>Make sure you are on the mainnet network. Do not use a test network.</b></p>
+                <div>
+                    <a href="https://www.tronlink.org/" target="_blank" class="button green">tron link</a>
+                    <a href="https://www.tronwallet.me/" target="_blank" class="button blue">tron wallet</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
+<div class="modal" data-modal="referral">
+    <div class="modal__container" style="max-width: 500px">
+        <button class="close"><img src="static/img/svg/main/close.svg" alt=""></button>
+        <div class="modal-content">
+            <div class="container">
+                <h2>TOKEN WITHDRAWAL STATISTICS</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <td>token withdrawal amount</td>
+                        <td>date/time</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="w in referral">
+                        <td><b class="text-dark-blue">[parseFloat(w.amount/1000000).Crop(6)]</b> SWD</td>
+                        <td>[w.date]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" data-modal="lang">
+    <div class="modal__container modal-lang">
+        <button class="close">
+            <img src="static/img/svg/main/close.svg" alt=""></button>
+        <div class="container">
+            <ul>
+                
+                    <li><a href="index.html"><img src="static/img/flags/en.png"
+                                                                             alt=""></a><span>English</span></li>
+                
+                    <li><a href="zh-hans/index.html"><img src="static/img/flags/zh-hans.png"
+                                                                             alt=""></a><span>中文</span></li>
+                
+                    <li><a href="ru/index.html"><img src="static/img/flags/ru.png"
+                                                                             alt=""></a><span>Русский</span></li>
+                
+                    <li><a href="fa/index.html"><img src="static/img/flags/fa.png"
+                                                                             alt=""></a><span>farsi</span></li>
+                
+                    <li><a href="es/index.html"><img src="static/img/flags/es.png"
+                                                                             alt=""></a><span>espanol</span></li>
+                
+                    <li><a href="vi/index.html"><img src="static/img/flags/vi.png"
+                                                                             alt=""></a><span>tiếng Việt</span></li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="modal" data-modal="soc">
+    <div class="modal__container modal-soc">
+        <button class="close">
+            <img src="static/img/svg/main/close.svg" alt=""></button>
+        <div class="container">
+            <h2>contact us</h2>
+            <ul>
+                <li onclick="window.open('https://telegram.me/Shark_Tron')">
+                    <i><img src="static/img/flags/en.png" alt=""></i>
+                    <div>
+                        <h3>english</h3>
+                        <h5>telegram group</h5>
+                        <h4>@Shark_Tron</h4>
+                    </div>
+                </li>
+                <li onclick="window.open('https://t.me/Shark_Persian')">
+                    <i><img src="static/img/flags/fa.png" alt=""></i>
+                    <div>
+                        <h3>iranian</h3>
+                        <h5>telegram group</h5>
+                        <h4>@Shark_Persian</h4>
+                    </div>
+                </li>
+                <li onclick="window.open('https://t.me/Shark_chinese')">
+                    <i><img src="static/img/flags/zh-hans.png" alt=""></i>
+                    <div>
+                        <h3>chinese</h3>
+                        <h5>telegram group</h5>
+                        <h4>@Shark_chinese</h4>
+                    </div>
+                </li>
+                <li onclick="window.open('https://t.me/Shark_Spanish')">
+                    <i><img src="static/img/flags/es.png" alt=""></i>
+                    <div>
+                        <h3>spanish</h3>
+                        <h5>telegram group</h5>
+                        <h4>@Shark_Spanish</h4>
+                    </div>
+                </li>
+                <li onclick="window.open('https://t.me/Shark_Tron_Philippines')">
+                    <i><img src="static/img/flags/ph.png" alt=""></i>
+                    <div>
+                        <h3>Philippines</h3>
+                        <h5>telegram group</h5>
+                        <h4>@Shark_Tron_Philippines</h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="modal" data-modal="menu">
+    <div class="modal__container modal-menu">
+        <button class="close"><img src="static/img/svg/main/close.svg" alt=""></button>
+        <div class="container">
+            <div class="wallet_info">
+                <h6>your wallet</h6>
+                <h5 v-if="user">[user_login]</h5>
+                <button class="button green" v-if="!user" data-toggle="login">login</button>
+            </div>
+            <menu>
+                <li><a href="https://justswap.org/?lang=en-US#/home?tokenAddress=TLWAwUn79CVehz91A4J9nbh6SPPvDdhba1&amp;type=swap" target="_blank">trade swd</a></li>
+                <li><a target="_blank" href="static/whitepaper.pdf">whitepaper</a></li>
+                <li><a target="_blank" href="https://diceshark.com/">diceshark</a></li>
+                <li><a target="_blank" href="https://sharktron.com/">sharktron</a></li>
+                
+            </menu>
+            <ul class="soc">
+                <li onclick="window.open('https://twitter.com/shark_tron')"><a href="https://twitter.com/shark_tron"
+                                                                               target="_blank">
+                    <img src="static/img/svg/main/tw.svg" alt="">
+                </a>
+                </li>
+                <li >
+                    <a href="#" data-toggle="soc" target="_blank">
+                        <img src="static/img/svg/main/tl.svg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-toggle="lang" class="lang">
+                        <img src="static/img/flags/en.png" alt="">
+                    </a>
+                </li>
+            </ul>
+            <a href="" class="copyright">Copyright © All rights reserved</a>
+        </div>
+    </div>
+</div>
+
+<div class="modal" data-modal="statistics">
+    <div class="modal__container" style="max-width: 750px">
+        <button class="close"><img src="static/img/svg/main/close.svg" alt=""></button>
+        <div class="modal-content">
+            <div class="container">
+                <h2>Financial Statistics</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <td>STAKE AMOUNT</td>
+                        <td class="m-none">Performed action</td>
+                        <td>date/time</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="w in statistics">
+                        <td>
+                            <b>[parseFloat(w.amount/1000000).Crop(6)]</b> trx
+                            <span class="d-none"
+                                  :class="{'text-green' : w.type ==='freeze' , 'text-blue' : w.type !== 'freeze'}">[w.type =='freeze' ? 'Posting of a stake' : 'Return of a deposit']</span>
+                        </td>
+                        <td class="m-none"
+                            :class="{'text-green' : w.type ==='freeze' , 'text-blue' : w.type !== 'freeze'}">
+                            [w.type =='freeze' ? 'Posting of a stake' :
+                            'Return of a deposit']
+                        </td>
+                        <td>[w.date]</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" data-modal="level">
+    <div class="modal__container modal-stat" style="max-width: 857px">
+        <button class="close"><img src="static/img/svg/main/close.svg" alt=""></button>
+        <div class="modal-content">
+            <div class="container">
+                <h3 style="margin-top: 40px;">CURRENT SWORD TOKEN MINING RATES</h3>
+
+                <div class="stat-progress">
+                    <div class="stat-progress__header">
+                        <h4>level: [currentLvl] <span>/ 15</span></h4>
+                        <h5>tokens left at the current level</h5>
+                        <h6>[parseFloat(level.amount - period_mined).Crop(2)] SWD / <span>[level.amount] SWD</span></h6>
+                    </div>
+                    <div class="stat-progress__footer">
+                        <div>
+                            <div :style="{'width' : procentToken+'%'}"></div>
+                        </div>
+                        <h4>sword token value: <b>~ [price_token_trx] TRX</b></h4>
+                    </div>
+                </div>
+
+                <p>SWORD tokens mining is carried out by staking TRX, SRX and TTH tokens. Users can stake and unstake their tokens at any time. The SWD token offer is limited by 50,000,000 tokens. The mining process is divided into 15 levels. Each level is limited to a certain number of tokens. The transition to each level is carried out automatically without the need for coins unstaking.</p>
+                <h3>ACCRUAL OF SWORD TOKENS</h3>
+                <p>SWD tokens are credited in real time. The number of credited tokens depends on the frozen amount, type of token and mining level. Please note that the profitability from SWD mining is fixed in TRX. In SRX or TTH tokens, it can change depending on their exchange rate in relation to TRX.</p>
+                <h3>Mining level table and Sword token accrual:</h3>
+
+                <table class="d-none">
+                    <thead>
+                    <tr>
+                        <td>level</td>
+                        <td>EARNINGS IN 24 HOURS</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(l , k) in listlevel">
+                        <td><b>[k+1]</b>/ [l.amount] SWD</td>
+                        <td>
+                            <span>1 srx = <b>[parseFloat(l.srx).toFixed(6).Crop(6)] SWD</b></span>
+                            <span>1 tth = <b>[parseFloat(l.tth).toFixed(6).Crop(6)] SWD</b></span>
+                            <span>1 trx = <b>[parseFloat(l.trx).toFixed(6).Crop(6)]  SWD</b></span>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="m-none stat-table">
+                    <thead>
+                    <tr>
+                        <td>level</td>
+                        <td colspan="3">EARNINGS IN 24 HOURS</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(l , k) in listlevel">
+                        <td><b>[k+1]</b>/ [l.amount] SWD</td>
+                        <td>1 trx = <b>[parseFloat(l.trx).toFixed(6).Crop(6)] SWD</b></td>
+                        <td>1 srx ~ <b>[parseFloat(l.srx).toFixed(6).Crop(6)] SWD</b></td>
+                        <td>1 tth ~ <b>[parseFloat(l.tth).toFixed(6).Crop(6)] SWD</b></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <h3 style="margin-top: 30px;">HOW TO USE SWORD TOKENS</h3>
+                <p>You can withdraw the received SWD tokens to your wallet at any time. The exchange of SWD tokens for TRX, SRX or TTH will be available on the JustSwap platform as well as on the SharkExchange. The price of mined tokens can change over time. It depends on factors such as demand as well as the total amount of mined SWD tokens.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal stk" data-modal="stake">
+    <div class="modal__container modal-stake" :class="'modal-stake--'+select_token" style="max-width: 558px">
+        <button class="close">
+            <img src="static/img/svg/main/close.svg" alt="">
+        </button>
+        <div class="modal-content">
+            <div class="container">
+                <div class="modal-stake__header">
+                    <img :src="'/static/img/svg/'+select_token+'.svg'" alt="">
+                    <div class="modal-stake-balance">
+                        <h3>Your wallet balance</h3>
+                        <h2>[active_balance] <span>[select_token]</span></h2>
+                    </div>
+                </div>
+                <div class="modal-stake__content">
+                    <div class="min">
+                        <label for="">Enter the stake amount </label>
+                        <span :class="'text-'+color[select_token]">min: <b>[get_min] [select_token]</b></span>
+                    </div>
+                    <div class="input">
+                        <input type="number" step="1" v-model="amount"> <span
+                            :class="'text-'+color[select_token]">[select_token]</span>
+                        <button :class="'text-'+color[select_token]" @click.prevent="get_max">max</button>
+                    </div>
+                    <table>
+                        <caption>profitability</caption>
+                        <tbody>
+                        <tr>
+                            <td>Per hour</td>
+                            <td>
+                                [ph.Crop(4)] SWD
+                                <span :class="'text-'+color[select_token]">~ [parseFloat(ph * price_token).Crop(4)] USD</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Per day</td>
+                            <td>
+                                [parseFloat(ph *24).Crop(4)] SWD
+                                <span :class="'text-'+color[select_token]">~ [parseFloat(ph * price_token * 24).Crop(4)] USD</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Per 10 days</td>
+                            <td>
+                                [parseFloat(ph * 24 * 10).Crop(4)] SWD
+                                <span :class="'text-'+color[select_token]">~ [parseFloat(ph * price_token * 24 * 10).Crop(4)] USD</span>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <button class="button " :class="color[select_token]" v-if="select_token === 'trx'"
+                            @click.prevent="stake_action">
+                        stake [select_token]
+                        <img src="static/img/svg/arrow.svg" alt="">
+                    </button>
+                    <button class="button " :class="color[select_token]"
+                            v-else-if="select_token !== 'trx' && allowance[select_token] >0 "
+                            @click.prevent="stake_action">
+                        stake [select_token]
+                        <img src="static/img/svg/arrow.svg" alt="">
+                    </button>
+                    <button class="button " :class="color[select_token]" @click="approve_send" v-else>
+                        approve [select_token]
+                        <img src="static/img/svg/arrow.svg" alt="">
+                    </button>
+                </div>
+                <div class="modal-stake__footer" v-if="hh.length > 0">
+                    <h2>Financial statistics</h2>
+                    <table>
+                        <tr v-for="s in hh ">
+                            <td>[parseFloat(s.amount/1000000).Crop(4)] [select_token]</td>
+                            <td>[s.types]</td>
+                            <td>[s.date]</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script src="static/js/main%EF%B9%96v=2.js"></script>
 <script>
-    function myFunction() {
-        var copyText = document.getElementById("addressLink");
-        copyText.select();
-        copyText.setSelectionRange(0, 99999)
-        document.execCommand("copy");
-        //alert("Copied the text: " + copyText.value);
-    }
-
-
-</script>
-
-<script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
-
-<script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<script src="vendors/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
-<script src="dist/js/dataTables-data.js"></script>
-
-<script src="dist/js/jquery.slimscroll.js"></script>
-
-<script src="vendors/bower_components/waypoints/lib/jquery.waypoints.min.js"></script>
-<script src="vendors/bower_components/jquery.counterup/jquery.counterup.min.js"></script>
-
-<script src="dist/js/dropdown-bootstrap-extended.js"></script>
-
-<script src="vendors/jquery.sparkline/dist/jquery.sparkline.min.js"></script>
-
-<script src="vendors/bower_components/owl.carousel/dist/owl.carousel.min.js"></script>
-
-<script src="vendors/bower_components/switchery/dist/switchery.min.js"></script>
-
-<script src="vendors/bower_components/echarts/dist/echarts-en.min.js"></script>
-<script src="vendors/echarts-liquidfill.min.js"></script>
-
-<script src="vendors/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
-<script src="vendors/vectormap/jquery-jvectormap-world-mill-en.js"></script>
-<script src="dist/js/vectormap-data.js"></script>
-
-<script src="vendors/bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
-
-<script src="vendors/bower_components/peity/jquery.peity.min.js"></script>
-<script src="dist/js/peity-data.js"></script>
-
-<script src="vendors/bower_components/raphael/raphael.min.js"></script>
-<script src="vendors/bower_components/morris.js/morris.min.js"></script>
-
-<script src="vendors/bower_components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-
-
-<script src="dist/js/init.js"></script>
-<script src="dist/js/dashboard2-data.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.js"></script>
-
-<script src="js/main.js"></script>
-
-<script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js@1.2.0/dist/web3.min.js"></script>
-<script type="text/javascript" src="js/alertify.js"></script>
-<script type="text/javascript" src="js/lightwallet.min.js"></script>
-<script type="text/javascript" src="js/poh-new-info.js"></script>
-<script src="js/jquery.countup.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js" integrity="sha512-3j3VU6WC5rPQB4Ld1jnLV7Kd5xr+cq9avvhwqzbH/taCRNURoeEpoPBK9pDyeukwSxwRPJ8fDgvYXd6SkaZ2TA==" crossorigin="anonymous"></script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-117276576-3"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-
-    gtag('config', 'UA-117276576-3');
-
-    $(window).scroll(function () {
-        var scroll = $(window).scrollTop();
-        if (scroll >= 100) {
-            $(".navbar-fixed-top,.fixed-sidebar-left").removeClass("metamask");
-        } else {
-            if (metamask) {
-                $(".navbar-fixed-top,.fixed-sidebar-left").addClass("metamask");
-
-            } else {
-                $(".navbar-fixed-top,.fixed-sidebar-left").removeClass("metamask");
-
-            }
-
-        }
-    });
-
-</script>
-<script type="text/javascript">
-
-    //$("#hplMetaMask").addEventListener('click', async () => {
-    $("#hplMetaMask").click(function () {
-        // Modern dapp browsers...
-        if (window.ethereum) {
-            window.web3 = new Web3(ethereum);
-            try {
-                // Request account access if neededethereumgold
-                ethereum.enable();
-                // Acccounts now exposed
-                web3.eth.sendTransaction({/* ... */});
-            } catch (error) {
-                // User denied account access...
-            }
-        }
-        // Legacy dapp browsers...
-        else if (window.web3) {
-            window.web3 = new Web3(web3.currentProvider);
-            // Acccounts always exposed
-            web3.eth.sendTransaction({/* ... */});
-        }
-        // Non-dapp browsers...
-        else {
-            console.log('Non-Ethereum browser detected. You should consider trying MetaMask!');
-        }
-    });
-
-
-</script>
-<script>
-    /*
-     * Basic Count Up from Date and Time
-     * Author: @mrwigster / https://guwii.com/bytes/count-date-time-javascript/
-     */
-    window.onload = function () {
-        // Month Day, Year Hour:Minute:Second, id-of-element-container
-        countUpFromTime("2020-10-13T16:42:36-00:00", 'countup1'); // ****** Change this line!
-
-        if (typeof $.cookie('modal_shown') === 'undefined') { // no cookie
-
-            $("#announceModalTrigger").click();
-            $.cookie('modal_shown', 'yes', {expires: 1}); // set cookie expiry to 1 day
-
-        } else { // have cookie
-            // do something
-        }
+    Number.prototype.Crop = function (x) {
+        var s = this + '',
+            a = s.split('.');
+        a[1] = a[1] || '';
+        return parseFloat(a[0] + '.' + a[1].substring(0, x));
     };
 
-    function countUpFromTime(countFrom, id) {
-        countFrom = new Date(countFrom).getTime();
-        var now = new Date(),
-            countFrom = new Date(countFrom),
-            timeDifference = (now - countFrom);
 
-        var secondsInADay = 60 * 60 * 1000 * 24,
-            secondsInAHour = 60 * 60 * 1000;
+    String.prototype.Crop = function (x) {
+        var s = this + '',
+            a = s.split('.');
+        a[1] = a[1] || '';
+        return parseFloat(a[0] + '.' + a[1].substring(0, x));
+    };
 
-        days = Math.floor(timeDifference / (secondsInADay) * 1);
-        hours = Math.floor((timeDifference % (secondsInADay)) / (secondsInAHour) * 1);
-        mins = Math.floor(((timeDifference % (secondsInADay)) % (secondsInAHour)) / (60 * 1000) * 1);
-        secs = Math.floor((((timeDifference % (secondsInADay)) % (secondsInAHour)) % (60 * 1000)) / 1000 * 1);
 
-        var idEl = document.getElementById(id);
-        idEl.getElementsByClassName('days')[0].innerHTML = days;
-        idEl.getElementsByClassName('hours')[0].innerHTML = hours;
-        //idEl.getElementsByClassName('minutes')[0].innerHTML = mins;
-        //idEl.getElementsByClassName('seconds')[0].innerHTML = secs;
+    TRONGRID_API2 = "https://api.trongrid.io";
+    let VueTRON = {
+        data() {
+            return {
+                tronWeb: {
+                    loggedIn: false
+                },
+                withdraw: [],
+                referral: [],
+                statistics: [],
 
-        clearTimeout(countUpFromTime.interval);
-        countUpFromTime.interval = setTimeout(function () {
-            countUpFromTime(countFrom, id);
-        }, 1000);
-    }
+                user: false,
+                listlevel: [
+                    {amount: 5000000, 'trx': 0.002, 'srx': 0.002*4.5, 'tth': 0.002 * 0.3},
+                    {amount: 5000000, 'trx': 0.0018, 'srx': 0.0018*4.5, 'tth': 0.0018* 0.3},
+                    {amount: 5000000, 'trx': 0.0016, 'srx': 0.0016*4.5, 'tth': 0.0016* 0.3},
+                    {amount: 4000000, 'trx': 0.0014, 'srx': 0.0014*4.5, 'tth': 0.0014* 0.3},
+                    {amount: 4000000, 'trx': 0.0013, 'srx': 0.0013*4.5, 'tth': 0.0013* 0.3},
+                    {amount: 4000000, 'trx': 0.0012, 'srx': 0.0012*4.5, 'tth': 0.0012* 0.3},
+                    {amount: 3500000, 'trx': 0.0011, 'srx': 0.0011*4.5, 'tth': 0.0011* 0.3},
+                    {amount: 3000000, 'trx': 0.001, 'srx': 0.001*4.5, 'tth': 0.001* 0.3},
+                    {amount: 3000000, 'trx': 0.0009, 'srx': 0.0009*4.5, 'tth': 0.0009* 0.3},
+                    {amount: 2500000, 'trx': 0.0008, 'srx': 0.0008*4.5, 'tth': 0.0008* 0.3},
+                    {amount: 2500000, 'trx': 0.0007, 'srx': 0.0007*4.5, 'tth': 0.0007* 0.3},
+                    {amount: 2500000, 'trx': 0.0006, 'srx': 0.0006*4.5, 'tth': 0.0006* 0.3},
+                    {amount: 2000000, 'trx': 0.0005, 'srx': 0.0005*4.5, 'tth': 0.0005* 0.3},
+                    {amount: 2000000, 'trx': 0.0004, 'srx': 0.0004*4.5, 'tth': 0.0004* 0.3},
+                    {amount: 2000000, 'trx': 0.0003, 'srx': 0.0003*4.5, 'tth': 0.0003* 0.3},
+                ],
 
-    $(document).keypress("u", function (e) {
-        if (e.ctrlKey) {
-            return false;
-        } else {
-            return true;
+                balance: {
+                    'srx': 0,
+                    'tth': 0,
+                    'trx': 0,
+                },
+                balance_srx: 0,
+                count_ref: 0,
+                amountNextLevel: 0,
+                totalMined: 0,
+                select_token: 'srx',
+                color: {
+                    'srx': 'blue',
+                    'tth': 'green',
+                    'trx': 'red',
+                }
+            };
+        },
+        computed: {
+            user_login: function () {
+                return String(this.user).substring(0, 4) + '.....' + String(this.user).substring(this.user.length - 4, this.user.length)
+            },
+
+
+        },
+        async created() {
+            await new Promise(resolve => {
+                const tronWebState = {
+                    installed: !!window.tronWeb,
+                    loggedIn: window.tronWeb && window.tronWeb.ready
+                };
+
+                if (tronWebState.installed) {
+                    this.tronWeb = tronWebState;
+                    return resolve();
+                }
+
+                let tries = 0;
+
+                const timer = setInterval(() => {
+                    if (tries >= 10) {
+                        const TRONGRID_API = TRONGRID_API2;
+
+                        window.tronWeb = new TronWeb(
+                            TRONGRID_API,
+                            TRONGRID_API,
+                            TRONGRID_API
+                        );
+
+
+                        this.tronWeb = {
+                            installed: false,
+                            loggedIn: false
+                        }
+
+
+                        clearInterval(timer);
+                        return resolve();
+                    }
+
+                    tronWebState.installed = !!window.tronWeb;
+                    tronWebState.loggedIn = window.tronWeb && window.tronWeb.ready;
+
+                    if (!tronWebState.installed)
+                        return tries++;
+
+                    this.tronWeb = tronWebState;
+
+                    resolve();
+                }, 1000);
+            });
+
+            if (!this.tronWeb.loggedIn) {
+
+                window.tronWeb.on('addressChanged', async () => {
+                    if (this.tronWeb.loggedIn)
+                        return;
+                    this.tronWeb = {
+                        installed: true,
+                        loggedIn: true
+                    }
+                });
+            }
+
+        },
+        methods: {
+            get_balance: async function () {
+                try {
+                    var s = JSON.stringify({address: await window.tronWeb.defaultAddress.hex});
+                    return $.ajax({
+                        type: 'post',
+                        dataType: 'json',
+                        url: TRONGRID_API2 + "/wallet/getaccount",
+                        contentType: 'application/json',
+                        data: s,
+                        success: (data) => {
+                            this.balance.trx = (data.balance / 1000000).Crop(2);
+
+                        }
+                    })
+                } catch (e) {
+                    console.log(e)
+                }
+
+                // this.balance = this.crop(await window.tronWeb.trx.getBalance() / 1000000)
+            },
+            getTronWeb() {
+                return new Promise((resolve, reject) => {
+                    window.tronWeb ? resolve(window.tronWeb) : reject('TronWeb not found');
+                });
+            }
+        }, watch: {
+
+            async 'tronWeb.loggedIn'() {
+                clearTimeout(this.timeout)
+                this.timeout = setTimeout(async () => {
+                    this.user = window.tronWeb.defaultAddress.base58;
+                }, 300)
+
+            }
+
         }
-    });
+    };
 </script>
-<script type="text/javascript">(function(){window['__CF$cv$params']={r:'5ea9398e1feb55e6',m:'3c069044626a70f44ef3622cd3eb42b9254613e4-1604103779-1800-AUe777UCk1M7/w3gN/yGxXWshYZbR+FHczA76mgs5ieT+JWzuQ+b5WXjdW0fpQ8iadR5CP9vHpIsjGThqnsUaRK1xD1uasH+FvzqaQv6ZKS8lxbDblJDIDvP6HB5CuFnZQ==',s:[0xd960deb058,0x258b16169b],}})();</script></body>
+
+
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"/>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <style>.simplebar-scrollbar {
+            opacity: 0 !important;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script>
+
+
+        $('body').on('click', '.select', function () {
+            $(this).toggleClass('active');
+        });
+
+        $('body').on('click', '[data-toggle]', function () {
+
+            $('.modal.active').removeClass('active');
+            $(`[data-modal="${$(this).data('toggle')}"]`).addClass('active');
+            $('body').addClass('open-modal');
+            $('.modal').on('click', function (e) {
+                if (!$(e.target).closest('.modal__container').length) {
+                    closeModal();
+                    $('.modal__container').unbind();
+                }
+            })
+
+            App.getHistory($(this).data('toggle'));
+
+            return false
+        })
+
+        function openModal(name) {
+            $(`[data-modal]`).removeClass('active');
+            $(`[data-modal="${name}"]`).addClass('active');
+            $('body').addClass('open-modal');
+            $('.modal').on('click', function (e) {
+                if (!$(e.target).closest('.modal__container').length) {
+                    closeModal();
+                    $('.modal__container').unbind();
+                }
+            })
+
+            App.getHistory($(this).data('toggle'));
+
+            return false
+        }
+
+        $('body').on('click', '.modal .close', function () {
+            closeModal();
+        });
+
+
+        function closeModal() {
+            $('body').removeClass('open-modal');
+            $(`[data-modal]`).removeClass('active');
+            return false
+        }
+
+        window.App = new Vue({
+            mixins: [VueTRON],
+            el: '.app',
+            delimiters: ['[', ']'],
+            data() {
+                return {
+                    wallet: 'TCoCR2oDhL3ghKsRgrKdGWPNt8rVRUwpiW',
+                    active: false,
+                    avaiable: 0,
+                    
+                    
+                    referral_money: 0,
+                    total_referral: 0,
+                    amount: 100,
+                    srx: false,
+                    tth: false,
+                    swd: false,
+                    upline: [],
+                    period_mined: 0,
+                    total_staked: {
+                        'srx': 0,
+                        'tth': 0,
+                        'trx': 0,
+                    },
+                    history_freeze: {
+                        'srx': [],
+                        'tth': [],
+                        'trx': [],
+                    },
+                    user_stake: {
+                        trx: 0,
+                        srx: 0,
+                        tth: 0,
+                    },
+                    token_wallet: {
+                        'trx': 'TCoCR2oDhL3ghKsRgrKdGWPNt8rVRUwpiW',
+                        'srx': 'TQSTsAT1pWopxDgvhz3jBo77T8NgCXrzBr',
+                        'tth': 'TCPzTWSeuGDNoWs5s9EzE7FSS8JnrvieBa',
+                        'swd': 'TLWAwUn79CVehz91A4J9nbh6SPPvDdhba1',
+
+                    },
+                    min: {
+                        'srx': 100,
+                        'tth': 100,
+                        'trx': 100,
+                    },
+                    max: {
+                        'srx': 1000000,
+                        'tth': 10000000,
+                        'trx': 5000000,
+                    },
+                    allowance: {
+                        'srx': false,
+                        'tth': false,
+                        'swd': false,
+                    },
+                    level: {
+                        amount: 0,
+                        speed_trx: 0,
+                        speed_srx: 0,
+                        speed_tth: 0,
+                    },
+                    currentLvl: 1,
+                    curses: {
+                        'trx': 0,
+                        'trx_price': 0,
+                        'srx': 0,
+                        'srx_amount': 0,
+                    }
+
+                }
+            },
+            computed: {
+                price_token: function () {
+                    return parseFloat(this.price_token_trx * this.curses.trx_price).Crop(4)
+                },
+                price_token_trx: function () {
+                    return parseFloat(this.curses.trx / this.curses.srx_amount).Crop(4);
+                },
+                get_min: function () {
+                    return this.min[this.select_token];
+                },
+                hh: function () {
+                    return this.history_freeze[this.select_token];
+                },
+                active_balance: function () {
+                    return this.balance[this.select_token];
+                },
+                ref_link: function () {
+                    if (this.user) {
+                        return 'https://sharkdefi.com/?referral=' + this.user
+                    }
+                    return '';
+                },
+
+                procentToken: function () {
+                    if (!this.user) {
+                        return 0;
+                    }
+                    return this.period_mined / this.level.amount * 100
+
+                },
+                left: function () {
+                    return this.level.amount - this.period_mined
+                },
+                per_hour: function () {
+                    var time = 3600;
+                    var send_amount;
+                    send_amount = time * this.user_stake.trx * this.level.speed_trx;
+                    send_amount += time * this.user_stake.srx * this.level.speed_srx;
+                    send_amount += time * this.user_stake.tth * this.level.speed_tth;
+                    send_amount = send_amount / 1000000 / 86400;
+                    return send_amount;
+                },
+                per_hour_price: function () {
+                    return this.per_hour * this.price_token;
+                },
+                ph: function () {
+                    var time = 3600;
+                    var send_amount;
+                    send_amount = time * this.amount * this.level['speed_' + this.select_token];
+                    send_amount = send_amount / 1000000 / 86400;
+                    return send_amount;
+                },
+
+            },
+            methods: {
+                getTokenAmount() {
+                    var _this = this;
+                    const data = JSON.stringify({
+                        "owner_address": "417e5f4552091a69125d5dfcb7b8c2659029395bdf",
+                        "contract_address": "41738c6e7edd4672c7f6e7158add1dfb9fdea5c93e",
+                        "function_selector": "balanceOf(address)",
+                        "call_value": 0,
+                        "parameter": "000000000000000000000000f3ee8aa95bcdcaef2dfb519efc72c1ecfd81b402"
+                    });
+
+                    const xhr = new XMLHttpRequest();
+
+                    xhr.addEventListener("readystatechange", function () {
+                        if (this.readyState === this.DONE) {
+                            let t = '0x' + JSON.parse(this.responseText).constant_result[0];
+                            _this.curses.srx_amount = Number(t) / 1000000;
+                        }
+                    });
+
+                    xhr.open("POST", "https://api.trongrid.io/wallet/triggersmartcontract");
+                    xhr.setRequestHeader("content-type", "application/json");
+                    xhr.send(data);
+                },
+
+                get_Trx_Amount() {
+                    var _this = this;
+                    $.ajax({
+                        type: "post",
+                        data: "{address : '41f3ee8aa95bcdcaef2dfb519efc72c1ecfd81b402'}",
+                        dataType: 'json',
+                        contentType: "application/json",
+                        url: 'https://api.trongrid.io/walletsolidity/getaccount',
+                        success: function (data) {
+                            _this.curses.trx = parseFloat(data.balance / 1000000);
+                        }
+                    })
+                },
+                getTrxPrice: function () {
+                    $.get('https://api.just.network/swap/scan/statusinfo?exchangeAddress=TYCzxqZBWUBYhftFqVthk2xGmwpbtvFBUB', (d) => {
+                        this.curses.trx_price = d.data.trxPrice;
+                    })
+                },
+                get_max: function () {
+                    if (this.max[this.select_token] < this.active_balance) {
+                        this.amount = this.max[this.select_token];
+                    } else {
+                        this.amount = this.active_balance;
+                    }
+                },
+                getHistory: function (t) {
+                    var _this = this;
+                    $.get(t + '/?user=' + this.user + '&stake=' + this.token_wallet[this.select_token], function (d) {
+                        if (t === 'stake') {
+                            _this.history_freeze[_this.select_token] = d;
+                        }
+                        _this[t] = d
+                    });
+                },
+                copy() {
+                    var copyText = document.getElementById("ref");
+                    copyText.select();
+                    copyText.setSelectionRange(0, 99999)
+                    document.execCommand("copy");
+                    alert("Copied");
+                },
+                stake_action: function () {
+
+                    if (this.select_token === 'trx') {
+                        this.app.stake(this.upline).send({
+                            feeLimit: 5000000,
+                            callValue: parseFloat(this.amount * 1000000).toFixed(0)
+                        }).then((d) => {
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1000)
+                        });
+                    } else {
+                        this.app.stakeToken(this.token_wallet[this.select_token], this.upline, parseFloat(this.amount * 1000000).toFixed(0)).send({feeLimit: 5000000}).then(() => {
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1000)
+                        });
+                    }
+                },
+                approve_send: async function () {
+                    this[this.select_token].approve(this.wallet, 1000000000000000).send().then((d) => {
+                        this.check_approve(this.select_token);
+                        setTimeout(() => {
+                            location.reload()
+                        }, 1000)
+                    })
+                },
+                check_approve: function (name) {
+                    this[name].allowance(this.user, this.wallet).call().then((d) => {
+                        this.allowance[name] = parseFloat(d);
+                    }).catch((e) => {
+                        this.check_approve(name);
+                    })
+                },
+                balanceSWD: function () {
+                    this.get_user_stake();
+                    this.app.get_money(this.user).call().then((d) => {
+                        this.avaiable = parseFloat(d) / 1000000;
+                    });
+                    this.app.get_money_referral(this.user).call().then((d) => {
+                        this.referral_money = (d / 1000000).Crop(6)
+                    })
+                    setTimeout(() => {
+                        this.balanceSWD();
+                    }, 5000)
+                },
+                get_user_stake: function () {
+                    this.app.user_stake(this.user).call().then((d) => {
+                        this.user_stake = {
+                            srx: parseFloat(parseFloat(d.srx_amount) / 1000000).Crop(2),
+                            trx: parseFloat(parseFloat(d.trx_amount) / 1000000).Crop(2),
+                            tth: parseFloat(parseFloat(d.tth_amount) / 1000000).Crop(2),
+                            date: parseFloat(d.date),
+                        }
+
+                    })
+                },
+
+                getMyToken: function () {
+                    this.app.getToken().send({feeLimit: 5000000}).then(() => {
+                        setTimeout(() => {
+                            location.reload()
+                        }, 1000)
+                    });
+                },
+                getReferralMoney: function () {
+                    this.app.getReferralMoney().send({feeLimit: 5000000}).then(() => {
+                        setTimeout(() => {
+                            location.reload()
+                        }, 1000)
+                    });
+                },
+                get_statistics(token) {
+                    this.app.statistics(this.token_wallet[token]).call().then((d) => {
+                        this.total_staked[token] = parseFloat(parseFloat(d.freeze) / 1000000).Crop(4);
+                    })
+                },
+                unfreeze: function (token) {
+                    if (token.length > 0) {
+                        this.app.unfreezeToken(this.token_wallet[token]).send({feeLimit: 10000000}).then(() => {
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1000)
+                        });
+                    } else {
+                        this.app.unfreeze().send({feeLimit: 5000000}).then(() => {
+                            setTimeout(() => {
+                                location.reload()
+                            }, 1000)
+                        });
+                    }
+                },
+                get_currentLvl: function () {
+                    this.app.currentLvl().call().then((d) => {
+                        this.currentLvl = d
+                    })
+                },
+                register() {
+                    if (this.user && this.user !== '') {
+                        fetch('register', {
+                            method: "POST",
+                            headers: {
+                                "X-Requested-With": "XMLHttpRequest"
+                            },
+                            body: JSON.stringify({user: this.user})
+                        })
+                            .then((response) => {
+                                return response.json();
+                            })
+                            .then((data) => {
+                                this.active = true;
+                                if (data.result === 'success') {
+                                    this.upline = data.data;
+                                    this.total_referral = data.count;
+                                }
+                            });
+                    }
+                },
+                getBalanceToken() {
+
+                    this[this.select_token].balanceOf(this.user).call().then((d) => {
+                        this.balance[this.select_token] = parseFloat(d) / 1000000;
+                    }).catch((e) => {
+                        this.getBalanceToken();
+                    })
+                },
+                get_all_info: function () {
+                    this.app.get_all_info(this.token_wallet.srx, this.token_wallet.tth, this.token_wallet.trx).call().then((d) => {
+                        this.total_staked.srx = parseFloat(d[0] / 1000000).Crop(2);
+                        this.total_staked.tth = parseFloat(d[1] / 1000000).Crop(2);
+                        this.total_staked.trx = parseFloat(d[2] / 1000000).Crop(2);
+                        this.period_mined = parseFloat(d[3] / 1000000).Crop(2);
+                        this.currentLvl = d[4];
+                        this.level = {
+                            amount: parseFloat(d[5] / 1000000).Crop(2),
+                            speed_trx: parseFloat(d[8]).Crop(2),
+                            speed_srx: parseFloat(d[6]).Crop(2),
+                            speed_tth: parseFloat(d[7]).Crop(2),
+                        };
+                        console.log(this.level)
+                    }).catch((e) => {
+                        setTimeout(() => {
+                            this.get_all_info();
+                        }, 2000)
+                    });
+                }
+            },
+            watch: {
+                amount: function () {
+
+                        this.amount =  parseInt(this.amount);
+
+
+                },
+                'select_token': function () {
+                    if (this.select_token === 'trx') {
+                        this.get_balance();
+                    } else {
+                        this.getBalanceToken();
+                    }
+                },
+                async 'tronWeb.loggedIn'() {
+                    clearTimeout(this.timeout)
+                    this.timeout = setTimeout(async () => {
+                        this.user = window.tronWeb.defaultAddress.base58;
+                        this.app = await window.tronWeb.contract().at(this.wallet);
+                        this.register();
+
+                        this.srx = await window.tronWeb.contract().at(this.token_wallet.srx);
+                        this.tth = await window.tronWeb.contract().at(this.token_wallet.tth);
+                        this.balanceSWD();
+                        this.get_balance();
+                        this.get_user_stake();
+
+                        this.check_approve('srx');
+                        this.check_approve('tth');
+
+                        this.get_all_info();
+                        this.getBalanceToken();
+
+                    }, 300)
+                },
+            },
+            async mounted() {
+                this.getTokenAmount();
+                this.get_Trx_Amount();
+                this.getTrxPrice();
+                $('.modal-content').each((i, e) => {
+                    console.log(e)
+                    new SimpleBar($(e)[0]);
+                })
+            }
+        })
+    </script>
+
+</body>
 </html>
