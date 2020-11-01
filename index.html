@@ -43,6 +43,12 @@
                             </a>
                         </li>
                     </ul>
+
+                    <button class="button blue" @click.prevent="copy"> copy ref link<img
+                        src="static/img/svg/arrow.svg" alt=""></button>
+                        <input type="text" id="ref"
+                        :value="ref_link"
+                        readonly>
                     <button class="button blue" :data-toggle="user ? '' : 'login'"><img
                             src="static/img/svg/main/user.svg" alt=""
                             style="margin-left: 0; margin-right: 15px;">[user ? user_login : 'unlock wallet']
@@ -86,45 +92,41 @@
                             <h2>[user_stake.cse] <span>CSE</span></h2>
                             <img src="static/img/png/CSELogo.png" alt="" class="center">
                             <h2>
-                            <button class="button blue" @click.prevent="unfreeze('cse')">
-                                Unstake CSE <img src="static/img/svg/arrow.svg" alt="">
-                                        </button>
-                                    </h2>                                
+                            <button class="button blue" @click.prevent="stake_action('trx')">
+                                Stake CSE <img src="static/img/svg/arrow.svg" alt="">
+                            </button>
+                                    </h2>    
+                                    <h2>
+                                        <button class="button blue" @click.prevent="unfreeze('cse')">
+                                            Unstake CSE <img src="static/img/svg/arrow.svg" alt="">
+                                        </button></h2>                            
                                 </div>
                         </div>
                     </div>
                     <div class="panel__right">
                         <div class="panel__content">
-                            <h3>CHARGE token balance </h3>
+                            <h3>CHARGE token balance</h3>
                             <h1>Earning 7% per day</h1>
                             <h2>[avaiable] <span>CHG</span></h2>
                             <img src="static/img/png/1.gif" alt="" class="center__right">
                             <h2>
                             <button class="button blue" @click.prevent="getMyToken">
-                                withdraw tokens <img src="static/img/svg/arrow.svg" alt="">
+                                withdraw CHARGE <img src="static/img/svg/arrow.svg" alt="">
                             </button>
                         </h2>
                             </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
         <div class="container">
 
             <div class="ref">
-
-                <div class="ref__left"><h4>your referral link</h4> <input type="text" id="ref"
-                                                                                        :value="ref_link"
-                                                                                        readonly>
-                    <button class="button blue" @click.prevent="copy">copy link <img
-                            src="static/img/svg/arrow.svg" alt=""></button>
-                    <p>Using this referral link, you can invite new users and receive CHARGE tokens as rewards</p>
-                    <p class="text-uppercase fz14 fw500">
-                        THE REWARD IS 10 % OF THE CHARGE token MINED BY YOUR REFERRALS</p></div>
-                <div class="ref__right">
-                    <div class="ref__right-content">
-                        <h4>available reward</h4>
-                        <h3>[referral_money] <span>CHG</span></h3>
+                <div class="panel__right">
+                    <div class="panel__right-content">
+                       <!-- <h4>available reward</h4>
+                        <h3>[referral_money] <span>CHG</span></h3>-->
                         <button class="button blue d-none"
                                 @click.prevent="getReferralMoney">withdraw to wallet
                             <img src="static/img/svg/arrow.svg" alt="">
@@ -136,7 +138,7 @@
                     </div>
                     <div class="ref__right-footer">
                         <h4>total referrals: <b>[total_referral]</b></h4>
-                        <a href="#" data-toggle="referral">referral statistics</a>
+                       <!--- <a href="#" data-toggle="referral">referral statistics</a>-->
                     </div>
                 </div>
             </div>
