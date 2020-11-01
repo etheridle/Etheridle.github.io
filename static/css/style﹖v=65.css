@@ -983,7 +983,7 @@ footer .logo img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: -1000%;
+    margin-bottom: -10%;
   }
 }
 @media (min-width: 1200px) {
@@ -992,7 +992,7 @@ footer .logo img {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: -1000%;
+    margin-bottom: -10%;
   }
 }
 .open-modal {
@@ -2158,8 +2158,8 @@ footer .logo img {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding-top: 150px !important;
-    padding-bottom: 5px !important;
+    padding-top: 100px !important;
+    padding-bottom: 0px !important;
   }
   .container__header > h2 {
     font-size: 60px !important;
